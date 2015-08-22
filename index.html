@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>HelloWorld！</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/grumble.min.css">
+    <script type="text/javascript" src='js/Chart.js'></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--自我介绍部分-->
+    <div id="home" class="row main">
+        <div class="col-md-12">
+            <!--   <div class="page-header">
+                <h1>亲，给个Offer吧<small>&nbsp;PERSONAL RESUME</small></h1>
+            </div> -->
+            <div class="text-center">
+                <a id="grumble" href="#" data-toggle="modal" data-toggle="modal" data-target="#myModal"><img src="images/LOGO.png" height="150" width="150" alt="..." class="img-circle"></a>
+                <h2>王&nbsp;&nbsp;&nbsp;&nbsp;彬</h2>
+                <!-- <small>WANGBIN</small> -->
+                <h4>静可以坐写代码，动可以爬山徒步</h4>
+                <h4>毕业于东北大学秦皇岛分校，自动化专业，上一份工作职位电气技术员</h4>
+                <h4>转行阵痛期，我已具备以下技能</h4>
+                <!-- <div class="row">
+                    <h5>毕业院校：东北大学&nbsp;&nbsp;&nbsp;&nbsp;毕业时间：2014年7月</h5>
+                    <h5>目前定位：辽宁大连&nbsp;&nbsp;&nbsp;&nbsp;目标城市：北京or大连</h5>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!--导航条-->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WANGBIN</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class='menuItem active'><a href="#home">AboutMe</a></li>
+                    <li class='menuItem'><a href="#features">技能图谱</a></li>
+                    <li class='menuItem'><a href="#updates">DEMO</a></li>
+                    <li class=''><a href="#one-pager">关于本简历</a></li>
+                    <li class=''><a href="blog/index.html">个人博客</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    联系方式：18698664067
+                    QQ：544039031
+                    E-Mail：wangbin2014@hotmail.com
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--技能图谱部分-->
+    <div id='contents'>
+        <div id="features" class="row skill">
+            <div class="col-md-6 text-center">
+                <p>对于使用Photoshop、Fireworks切图毫无压力
+                    <br>熟练使用HTML构建页面与CSS修饰，了解HTML5与CSS3新特性
+                    <br>掌握原生JavaScript，可使用DOM实现逻辑功能
+                    <br>了解Ajax，可实现从服务器获取资源等操作
+                    <br>了解并可轻量使用jQuery、BootStrap、jQueryMobile框架
+                </p>
+            </div>
+            <div class="col-xs-6 hidden-xs ">
+                <div style="width:100%">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">.col-md-4</div> -->
+        </div>
+        <!--作品展示-->
+        <div id="updates" class="row project">
+            <div class="col-md-3 text-center">
+                <a href="WYEDU/index.html"><img src="images/edu.png" class="img-responsive"></a>
+            </div>
+            <div class="col-md-3 text-center  project-text">
+                <p>精确到1像素的还原设计稿
+                    <br>未使用任何框架
+                    <br>课程列表通过Ajax从服务器端动态获取
+                    <br>实现轮播头图、登录、Cookie等功能
+                </p>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="time/index.html"><img src="images/time.png" class="img-responsive"></a>
+            </div>
+            <div class="col-md-3 text-center project-text">
+                <p>数字时钟，可实现计时功能
+                    <br>使用CSS3 Canvas绘制
+                    <br>通过算法模拟小球运动物理特性
+                    <br>实现小球回收机制，防止占用系统内存
+                </p>
+            </div>
+        </div>
+        <div id="one-pager" class="row resume">
+            <div class="col-md-12 text-center">
+                <div class="row">
+                    <div class="col-xs-6">
+                    </div>
+                    <div class="col-xs-6">
+                        本简历使用BootStrap搭建，重置部分CSS，导航使用stickUp，图谱使用Chart.js
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-6 text-center">.col-md-4</div> -->
+        </div>
+        <!--页脚-->
+        <footer class="row featurette">
+            <div class="row">
+                <br>
+                <div class="text-center col-sm-12 col-lg-12">
+                    <!-- <h2 class="featurette-heading">Stay in touch.<br><span class='text-muted'>Feel free to follow.</span></h2> -->
+                    <br>
+                    <br>
+                </div>
+                <div class="col-12 col-lg-12">
+                    <div class="col-lg-offset-2 col-lg-4 text-center">
+                        <a href="https://github.com/wangbin2015"><img src="images/github-64-black.png" height="64" width="64"></a>
+                        <h3>GitHub</h3>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <a href="javascript:;"><img src="images/email-64-black.png" height="64" width="64"></a>
+                        <h3>E-Mail</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <br>
+                <p class="text-center"><a href="#top">回到顶部</a></p>
+                <br>
+                <div class="text-center col-sm-12 col-lg-12">
+                    <p>© 2015 Wang Bin | This page was proudly built with <a href="http://www.getbootstrap.com">Twitter's Bootstrap</a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- END FOOTER -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src='js/stickUp.js'></script>
+        <script type="text/javascript" src='js/jquery.grumble.min.js'></script>
+        <script>
+        var radarChartData = {
+            labels: ["HTML", "CSS", "原生JavaScript", "Bootstrap、jQueryMobile框架", "jQuery", "其他", "English"],
+            datasets: [{
+                label: "My First dataset",
+                fillColor: "rgba(255,0,0,0.2)",
+                strokeColor: "rgba(153,0,0,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [80, 80, 82, 70, 70, 90, 70]
+            }]
+        };
+
+        window.onload = function() {
+            window.myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Radar(radarChartData, {
+                responsive: true
+            });
+        }
+        </script>
+        <script type="text/javascript">
+        jQuery(function($) {
+            $(document).ready(function() {
+                $('.navbar').stickUp({
+                    parts: {
+                        0: 'home',
+                        1: 'features',
+                        2: 'updates',
+                        3: 'installation',
+                        4: 'one-pager',
+                        5: 'extras',
+                        6: 'wordpress',
+                        7: 'contact'
+                    },
+                    itemClass: 'menuItem',
+                    itemHover: 'active',
+                    topMargin: 'auto'
+                });
+            });
+        });
+        </script>
+        <script type="text/javascript">
+        $('#grumble').grumble({
+            text: '单击头像试试',
+            angle: 85,
+            distance: 90,
+            showAfter: 200,
+            hideAfter: false,
+            hasHideButton: true
+                // buttonHideText: 'Pop!'
+        });
+        </script>
+</body>
+
+</html>

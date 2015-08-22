@@ -1,0 +1,43 @@
+.main {
+    background-color: #00CC99;
+    padding: 50px 0 50px;
+    color: rgba( 255, 255, 255, 1);
+}
+
+.skill {
+    background-color: #000066;
+    padding: 20px 0 20px;
+}
+
+.navbar {
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgba( 255, 255, 255, 1);
+    border-radius: 0;
+    z-index: 1;
+}
+
+.project {
+    padding: 50px 0 50px;
+}
+
+.resume {
+    background-color: #000066;
+    color: white;
+    padding: 50px 0 50px;
+}
+
+.featurette {
+    background-color: #00CC99;
+}
+
+#features p{
+    padding: 50px 0 50px;
+    font-size: 17px;
+    color: rgba( 255, 255, 255, 1);
+    line-height:3.5;
+}
+.project-text{
+    font-size: 17px;
+    line-height:3;
+}
