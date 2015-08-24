@@ -5,25 +5,8 @@ description: "cookie其实很简单"
 modified: 2015-08-09
 category: JavaScript
 tags: [JavaScript]
-imagefeature: 
-image:
-  feature: texture-feature-05.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
 
-<style type="text/css">
-    .trans {
-        font-size:12px;
-        color:#999;
-    }
-</style>
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 　　因个人知识有限，若发现文章中错误，欢迎发邮件与我进行讨论，邮箱：wangbin2014@hotmail.com，同时，欢迎关注[我的github账号](https://github.com/wangbin2015)                  　　        
 
 ***
@@ -48,10 +31,10 @@ image:
 
 #### 2、读取cookie      
 
-![](\images\post\20150809\20150809-2.png)
+![](..\images\post\20150809\20150809-2.png)
 
 #### 3、删除cookie         
 
-![](\images\post\20150809\20150809-3.png)
+![](..\images\post\20150809\20150809-3.png)
 
      
