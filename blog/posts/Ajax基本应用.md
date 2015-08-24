@@ -29,7 +29,7 @@ AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML）�
 **3、AJAX 原理、http请求：GET \ POST，两种方式的区别**                 
 Ajax的工作原理相当于在用户和服务器之间加了—个中间层(AJAX引擎),使用户操作与服务器响应异步化。并不是所有的用户请求都提交给服务器,像—些数据验证和数据处理等都交给Ajax引擎自己来做, 只有确定需要从服务器读取新数据时再由Ajax引擎代为向服务器提交请求。        
 
-![](/images/post/20150810/20150810-7.png)  
+![](../images/post/20150810/20150810-7.png)  
 
 **4、Ajax用来监控请求的状态事件是什么？分几个阶段，如何获取返回值？**
 * onreadystatechange事件    

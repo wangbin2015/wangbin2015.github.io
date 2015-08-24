@@ -27,7 +27,7 @@ tags: [JavaScript]
 
 #### 1、设置cookie    
 
-![](\images\post\20150809\20150809-1.png)
+![](..\images\post\20150809\20150809-1.png)
 
 #### 2、读取cookie      
 
