@@ -4,7 +4,7 @@
 ####请联系我：wangbin2014@hotmail.com
 
 ***
-* [2015年8月10日更新文章《Ajax基本应用》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/2015-08-10-Ajax%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8.md) 
+* [2015年8月10日更新文章《Ajax基本应用》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/Ajax%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8.md) 
 
 * [2015年8月9日更新文章《cookie其实很简单》](http://wangbin2015.github.io/javascript/cookie%E5%85%B6%E5%AE%9E%E5%BE%88%E7%AE%80%E5%8D%95/)        
 
