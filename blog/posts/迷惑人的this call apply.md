@@ -5,25 +5,8 @@ description: "迷惑人的this call apply"
 modified: 2015-07-30
 category: JavaScript
 tags: [JavaScript]
-imagefeature: cover2.jpg
-image:
-  feature: texture-feature-05.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
 
-<style type="text/css">
-    .trans {
-        font-size:12px;
-        color:#999;
-    }
-</style>
-<section id="table-of-contents" class="toc">
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
 　　因个人知识有限，若发现文章中错误，欢迎发邮件与我进行讨论，邮箱：wangbin2014@hotmail.com，同时，欢迎关注[我的github账号](https://github.com/wangbin2015)     
 　　今天的博文封面于2015年5月3日拍摄于大连历史博物馆，她今年8月去美国留学，祝一路顺风。           　　        
 
