@@ -10,7 +10,7 @@ h3 {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none
 }
 
 
@@ -62,6 +62,10 @@ a {
     width: 100%;
     /*border: 1px solid red;*/
     align-items: center;
+}
+
+.nav a {
+    color: black;
 }
 
 #banner li {
@@ -410,6 +414,21 @@ a {
     margin-bottom: 21px;
 }
 
+.video-content {
+    z-index: 3;
+    padding: 70px 30px 40px;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+.video-content p{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
 
 /*热门排行样式*/
 
@@ -515,9 +534,8 @@ a {
     font: 14.58px '微软雅黑';
 }
 
-#footer .content ul li:hover {
-    cursor: pointer;
-    text-decoration: underline;
+#footer .content ul li a {
+    color: #bebfc0;
 }
 
 
@@ -579,4 +597,11 @@ a {
     height: 47px;
     background-color: #2bb24f;
     cursor: pointer;
+}
+.close-btn{
+    position: absolute;
+    right: 13px;
+    top: 5px;
+    float: right;
+    /*border: 1px solid;*/
 }

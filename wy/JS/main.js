@@ -7,15 +7,18 @@ window.onload = function() {
         killRemind.never();
         tabCourse();
         logoin();
+        // 视频介绍展示
+        vedioplay()
     }
     // 关注API
 function logoin() {
     var follow = document.getElementsByClassName('follow')[0];
     var loginarea = document.getElementsByClassName('login-area')[0];
-    var mask = document.getElementsByClassName('mask')[0];
+    mask = document.getElementsByClassName('mask')[0];
     var submitbtn = document.getElementById('submit-btn');
     var account = document.getElementById('account');
     var pwd = document.getElementById('pwd');
+    var closebtn = document.getElementsByClassName('close-btn')[0];
     follow.onclick = function() {
         // 如果没有检测到登录的cookie
         if (1) {
@@ -27,23 +30,33 @@ function logoin() {
                 var ajaxOnsuccess = function() {
                     if (xhr.responseText == '1') {
                         alert('关注成功');
+                        loginarea.style.display = 'none';
+                        mask.style.display = 'none';
+
                     } else {
                         alert('关注失败');
+                        mask.style.display = 'none';
+                        loginarea.style.display = 'none';
                     };
-                    var url = 'http://study.163.com/webDev/login.htm';
-                    var options = {
-                        data: {
-                            userName: _account,
-                            password: _pwd
-                        },
-                        onsuccess: ajaxOnsuccess
-                    };
-                    var URL = url + '?userName=' + _account + '&password=' + _pwd;
-                    ajax(URL, options);
                 }
+                var url = 'http://study.163.com/webDev/login.htm';
+                var options = {
+                    data: {
+                        userName: _account,
+                        password: _pwd
+                    },
+                    onsuccess: ajaxOnsuccess
+                };
+                var URL = url + '?userName=' + _account + '&password=' + _pwd;
+                ajax(URL, options);
             }
         }
     }
+    closebtn.onclick = function() {
+        loginarea.style.display = 'none';
+        mask.style.display = 'none';
+    }
+
 }
 // 封装Ajax
 function ajax(url, options) {
@@ -95,7 +108,7 @@ function tabCourse() {
     type = 20;
     var tabA = document.getElementsByClassName('tabA')[0];
     var tabB = document.getElementsByClassName('tabB')[0];
-    // page.innerHTML = null;	
+    // page.innerHTML = null;   
     for (var j = 1; j < 9; j++) {
         var pli = document.createElement('li');
         pli.innerHTML = j;
@@ -255,12 +268,19 @@ function scrollFunc() {
         }, 20);
     }
 };
-//遮罩效果
-// function showdiv() {            
-//             document.getElementById("bg").style.display ="block";
-//             document.getElementById("show").style.display ="block";
-//         }
-// function hidediv() {
-//             document.getElementById("bg").style.display ='none';
-//             document.getElementById("show").style.display ='none';
-//         }
+
+function vedioplay() {
+    var mp4 = document.getElementsByClassName('mp4')[0];
+    var video = document.getElementsByClassName('video-content')[0];
+    var closebtn = document.getElementsByClassName('close-btn')[1];
+    closebtn.onclick = function() {
+        video.style.display = 'none';
+        mask.style.display = 'none';
+    }
+    mp4.onclick = function() {
+        video.style.display = 'block';
+        mask.style.display = 'block';
+
+    }
+
+}
