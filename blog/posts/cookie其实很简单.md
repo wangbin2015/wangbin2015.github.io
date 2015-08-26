@@ -27,14 +27,14 @@ tags: [JavaScript]
 
 #### 1、设置cookie    
 
-![](..\images\post\20150809\20150809-1.png)
+![](../images/post/20150809/20150809-1.png)
 
 #### 2、读取cookie      
 
-![](..\images\post\20150809\20150809-2.png)
+![](../images/post/20150809/20150809-1.png)
 
 #### 3、删除cookie         
 
-![](..\images\post\20150809\20150809-3.png)
+![](../images/post/20150809/20150809-1.png)
 
      
