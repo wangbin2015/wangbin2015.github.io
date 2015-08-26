@@ -30,7 +30,7 @@ tags: [javascript]
 			}
 		}
 ```
-#### Ajax
+#### 封装Ajax
 ```javascript
 		function ajax(url, options) {
 			if (window.XMLHttpRequest) {
@@ -49,7 +49,7 @@ tags: [javascript]
 			}
 		}
 ```
-#### Cookie
+#### 封装Cookie
 ```javascript
 		var CookieUtil = {
         set: function(name, value, expires) {
