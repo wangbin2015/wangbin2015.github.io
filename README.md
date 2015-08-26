@@ -2,6 +2,7 @@
 ####近期作品
 * [个人简历：](http://wangbin2015.github.io/)BootStrap搭建，支持响应式，重置部分CSS，导航使用stickUp，图谱使用Chart.js              
 * [仿站——网易微专业：](http://wangbin2015.github.io/wy/index.html)精确还原设计稿，未使用框架，课程列表通过Ajax从服务器端动态获取，实现轮播头、登录、Cookie等功能
+
 ***
 ####历史博文
 * [2015年8月26日更新文章《javascript常用函数》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/javascript%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0.md)
