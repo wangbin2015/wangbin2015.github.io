@@ -1,6 +1,11 @@
 ![WANGBIN·BLOG](blog/images/readme.jpg)
-####历史博文
+####近期作品
+* [个人简历：](http://wangbin2015.github.io/)BootStrap搭建，支持响应式，重置部分CSS，导航使用stickUp，图谱使用Chart.js              
+* [仿站——网易微专业：](http://wangbin2015.github.io/wy/index.html)精确还原设计稿，未使用框架，课程列表通过Ajax从服务器端动态获取，实现轮播头、登录、Cookie等功能
 ***
+####历史博文
+* [2015年8月26日更新文章《javascript常用函数》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/javascript%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0.md)
+
 * [2015年8月24日更新文章《面向对象程序设计——创建对象》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.md) 
 
 * [2015年8月10日更新文章《Ajax基本应用》](https://github.com/wangbin2015/wangbin2015.github.io/blob/master/blog/posts/Ajax%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8.md) 
