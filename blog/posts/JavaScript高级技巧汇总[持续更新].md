@@ -19,11 +19,11 @@ tags: [JavaScript]
         }
 ```
 类型检测方法：typeof、instanceof、Object.prototype.toString、constructor、duck type        
-1. **typeof**运算符：返回一个字符串，适合基本类型和function的检测，遇到null失效(返回的是object)     
-2. **instanceof**运算符：判断对象类型，是基于原型链完成判断的操作符，适合自定义对象，也可以用来检测原生对象，在不同iframe和window间检测时失效
-3. **Object.prototype.toString**方法：适合内置对象和基元类型，遇到null/undefined失效，IE6/7/8返回"[object Object]"
-4. **constructor**:重写了默认的prototype对象，constructor属性也就变成了新对象的constructor属性（指向Object构造函数），此时尽管instanceof操作符可以返回正确的结果，但是constructor已经无法确定对象的类型，用法事例：constructoralert((30).constructor)
-5. **duck type**鸭子类型:不知道一个对象是不是数组，可以判断他的length是不是数字，是否有join push等方法，通过特征判断对象是否属于某个类型，这个方法也是比较常用到的
+1. **typeof**运算符：返回一个字符串，适合基本类型和function的检测，遇到null失效(返回的是object)         
+2. **instanceof**运算符：判断对象类型，是基于原型链完成判断的操作符，适合自定义对象，也可以用来检测原生对象，在不同iframe和window间检测时失效       
+3. **Object.prototype.toString**方法：适合内置对象和基元类型，遇到null/undefined失效，IE6/7/8返回"[object Object]"    
+4. **constructor**:重写了默认的prototype对象，constructor属性也就变成了新对象的constructor属性（指向Object构造函数），此时尽管instanceof操作符可以返回正确的结果，但是constructor已经无法确定对象的类型，用法事例：constructoralert((30).constructor)      
+5. **duck type**鸭子类型:不知道一个对象是不是数组，可以判断他的length是不是数字，是否有join push等方法，通过特征判断对象是否属于某个类型，这个方法也是比较常用到的       
 
 ***
 
