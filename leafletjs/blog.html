@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Blog - Leaflet - a JavaScript library for interactive maps</title>
+
+	<meta charset=utf-8"utf-8" />
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
+
+	<link rel="stylesheet" href="docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
+	<link rel="stylesheet" href="docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
+
+	<link href="../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
+
+	<script src="docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
+	<script src="dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+
+	
+
+	<script>
+		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://cloudmade.com/">CloudMade</a>';
+		CM_URL = '../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://mapbox.com/">Mapbox</a>';
+		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+		OSM_URL = '../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+</head>
+<body class="blog-page">
+
+<h1><a href="index.htm" tppabs="http://leafletjs.com/"><img src="docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+<h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
+
+<ul class="nav">
+	<li>
+		
+			<a href="index.html" tppabs="http://leafletjs.com/index.html">Overview</a>
+		
+	</li>
+	<li>
+		
+			<a href="examples.html" tppabs="http://leafletjs.com/examples.html">Tutorials</a>
+		
+	</li>
+	<li>
+		
+			<a href="reference.html" tppabs="http://leafletjs.com/reference.html">Docs</a>
+		
+	</li>
+	<li>
+		
+			<a href="download.html" tppabs="http://leafletjs.com/download.html">Download</a>
+		
+	</li>
+	<li>
+		
+			<a href="plugins.html" tppabs="http://leafletjs.com/plugins.html">Plugins</a>
+		
+	</li>
+	<li>
+		
+			<span>Blog</span>
+		
+	</li>
+</ul>
+
+<div class="container">
+
+
+<h2 id="leaflet-developer-blog">Leaflet Developer Blog</h2>
+
+<p>The main place for all important Leaflet-related news, tutorials, tips and development notes. <a href="atom.xml" tppabs="http://leafletjs.com/atom.xml">Subscribe to Atom feed</a></p>
+
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		01 Sep 2015
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2015/09/01/leaflet-0.7.4-released.html" tppabs="http://leafletjs.com/2015/09/01/leaflet-0.7.4-released.html">Leaflet 0.7.5 Release</a></h3>
+		<p>Leaflet 0.7.5 released, containing bugfixes and backports. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		15 Jul 2015
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2015/07/15/leaflet-1.0-beta1-released.html" tppabs="http://leafletjs.com/2015/07/15/leaflet-1.0-beta1-released.html">Announcing Leaflet 1.0 beta 1</a></h3>
+		<p>Leaflet 1.0 beta 1 released. It's the biggest Leaflet release ever, with tons of improvements and bugfixes. We're starting a short beta release cycle, and need your help testing the release. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		01 Jul 2015
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2015/07/01/leaflet-is-alive-and-kicking.html" tppabs="http://leafletjs.com/2015/07/01/leaflet-is-alive-and-kicking.html">Leaflet is Alive and Kicking, Stay Tuned for 1.0!</a></h3>
+		<p>We're on the finishing line of releasing Leaflet 1.0 &mdash; the biggest and greatest Leaflet release ever. Meanwhile, I'm happy to present you the new redesigned Leaflet website! <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		18 Nov 2013
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2013/11/18/leaflet-0-7-released-plans-for-future.html" tppabs="http://leafletjs.com/2013/11/18/leaflet-0-7-released-plans-for-future.html">Leaflet 0.7 Release, MapBox and Plans for Future</a></h3>
+		<p>Leaflet 0.7 Released &mdash; with IE11 touch support, upscaling tiles and tons of other improvements and bugfixes! Meanwhile, I've joined the MapBox team full-time. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		28 Jun 2013
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2013/06/28/leaflet-plugin-authoring-guide.html" tppabs="http://leafletjs.com/2013/06/28/leaflet-plugin-authoring-guide.html">Leaflet Plugin Authoring Guide</a></h3>
+		<p>A number of best practices and tips for publishing your own perfect Leaflet plugin <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		26 Jun 2013
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2013/06/26/leaflet-0-6-released-dc-code-sprint-mapbox.html" tppabs="http://leafletjs.com/2013/06/26/leaflet-0-6-released-dc-code-sprint-mapbox.html">Leaflet 0.6 Released, Code Sprint in DC with MapBox</a></h3>
+		<p>Leaflet 0.6 released &mdash; with nicer controls, better usability and tons of API improvements and various bugfixes &mdash; more than 120 changes! The first ever Leaflet Code Sprint happening in Washington, DC with the MapBox team <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		20 Feb 2013
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2013/02/20/guest-post-draw.html" tppabs="http://leafletjs.com/2013/02/20/guest-post-draw.html">Leaflet.draw 0.2 Released</a></h3>
+		<p>Leaflet.draw 0.2 released &mdash; brings vector drawing and editing tools to your Leaflet map. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		17 Jan 2013
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2013/01/17/leaflet-0-5-released.html" tppabs="http://leafletjs.com/2013/01/17/leaflet-0-5-released.html">Leaflet 0.5 Released</a></h3>
+		<p>Leaflet 0.5 released &mdash; with IE10 touch support, retina-enabled markers, better panning inertia, new zoom control and about a hundred of other improvements and bugfixes! <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		25 Oct 2012
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2012/10/25/leaflet-0-4-5-bugfix-release-and-plans-for-0.5.html" tppabs="http://leafletjs.com/2012/10/25/leaflet-0-4-5-bugfix-release-and-plans-for-0.5.html">Leaflet 0.4.5 Bugfix Release and Plans for 0.5</a></h3>
+		<p>Leaflet 0.4.5 released, containing a small but important zoom animation bugfix for upcoming Chrome 23+ (currently beta) and IE10. Work on future 0.5 release goes on! <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		20 Aug 2012
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2012/08/20/guest-post-markerclusterer-0-1-released.html" tppabs="http://leafletjs.com/2012/08/20/guest-post-markerclusterer-0-1-released.html">Leaflet.MarkerCluster 0.1 Released</a></h3>
+		<p>Introducing Leaflet.MarkerCluster, a beautiful, fast, customizable plugin to reduce the visual clutter on crowded maps. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		07 Aug 2012
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2012/08/07/leaflet-0-4-3-and-a-new-tutorial.html" tppabs="http://leafletjs.com/2012/08/07/leaflet-0-4-3-and-a-new-tutorial.html">Leaflet 0.4.3 and a New Tutorial</a></h3>
+		<p>Leaflet 0.4.3 released with several bugfixes and improvements, and comes with a new tutorial on creating a colorful interactive choropleth map. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+<hr />
+
+<div class="clearfix">
+	<div class="post-date">
+		30 Jul 2012
+	</div>
+	<div class="post-info">
+		<h3 class="post-title"><a href="2012/07/30/leaflet-0-4-released.html" tppabs="http://leafletjs.com/2012/07/30/leaflet-0-4-released.html">Leaflet 0.4 Released</a></h3>
+		<p>After 5.5 months of development with 33 contributors involved, I'm proud to announce the release of Leaflet 0.4! It comes with a simpler API and <em>lots</em> of great improvements, along with a major update to documentation, a plugins page and the launch of the developer blog. <span class="quiet">&hellip;</span></p>
+	</div>
+</div>
+
+
+
+<div class="footer">
+	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+<nav class="ext-links">
+  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+</nav>
+
+<script>
+	hljs.configure({tabReplace: '    '});
+	hljs.initHighlighting();
+
+	(function () {
+		if (document.body.className.indexOf('api-page') !== -1) {
+			var headers = document.getElementsByTagName('h2');
+
+			for (var i = 0, len = headers.length; i < len; i++) {
+				if (headers[i].id) {
+					headers[i].onclick = function(e) {
+						if (e.offsetX < 0) {
+							window.location.hash = '#' + this.id;
+						}
+					};
+				}
+			}
+		}
+	})();
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-4147697-4' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www/')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script type="text/javascript" src="docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+</body>
+</html>

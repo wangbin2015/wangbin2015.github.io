@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Layer Groups and Layers Control - Leaflet - a JavaScript library for interactive maps</title>
+
+	<meta charset=utf-8"utf-8" />
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<link rel="shortcut icon" type="image/x-icon" href="../docs/images/favicon.ico" />
+
+	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
+
+	<link rel="stylesheet" href="../docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
+	<link rel="stylesheet" href="../docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
+
+	<link href="../../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
+
+	<script src="../docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="../dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
+	<script src="../dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+
+	
+
+	<script>
+		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://cloudmade.com/">CloudMade</a>';
+		CM_URL = '../../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://mapbox.com/">Mapbox</a>';
+		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+		OSM_URL = '../../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+</head>
+<body>
+
+<h1><a href="../index.htm" tppabs="http://leafletjs.com/"><img src="../docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+<h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
+
+<ul class="nav">
+	<li>
+		
+			<a href="../index.html" tppabs="http://leafletjs.com/index.html">Overview</a>
+		
+	</li>
+	<li>
+		
+			<a href="../examples.html" tppabs="http://leafletjs.com/examples.html" class="active">Tutorials</a>
+		
+	</li>
+	<li>
+		
+			<a href="../reference.html" tppabs="http://leafletjs.com/reference.html">Docs</a>
+		
+	</li>
+	<li>
+		
+			<a href="../download.html" tppabs="http://leafletjs.com/download.html">Download</a>
+		
+	</li>
+	<li>
+		
+			<a href="../plugins.html" tppabs="http://leafletjs.com/plugins.html">Plugins</a>
+		
+	</li>
+	<li>
+		
+			<a href="../blog.html" tppabs="http://leafletjs.com/blog.html">Blog</a>
+		
+	</li>
+</ul>
+
+<div class="container">
+
+
+<p class="tutorials-back"><a href="../examples.html" tppabs="http://leafletjs.com/examples.html">&larr; Tutorials</a></p>
+
+<h2 id="layer-groups-and-layers-control">Layer Groups and Layers Control</h2>
+
+<p>This tutorial will show you how to group several layers into one, and how to use the layers control to allow users to easily switch different layers on your map.</p>
+
+<div id="map" class="map" style="height: 250px"></div>
+
+<p><a href="layers-control-example.html" tppabs="http://leafletjs.com/examples/layers-control-example.html">View example on a separate page &rarr;</a></p>
+
+<h3 id="layer-groups">Layer Groups</h3>
+
+<p>Let&#8217;s suppose you have a bunch of layers you want to combine into a group to handle them as one in your code:</p>
+
+<pre><code>var littleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+	denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+	aurora    = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+    golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+</code></pre>
+
+<p>Instead of adding them directly to the map, you can do the following, using the <a href="../reference.html#layergroup" tppabs="http://leafletjs.com/reference.html#layergroup">LayerGroup</a> class:</p>
+
+<pre><code>var cities = L.layerGroup([littleton, denver, aurora, golden]);
+</code></pre>
+
+<p>Easy enough! Now you have a <code>cities</code> layer that combines your city markers into one layer you can add or remove from the map at once.</p>
+
+<h3 id="layers-control">Layers Control</h3>
+
+<p>Leaflet has a nice little control that allows your users control what layers they want to see on your map. In addition to showing you how to use it, we&#8217;ll show another handy use for layer groups.</p>
+
+<p>There are two types of layers &#8212; base layers that are mutually exclusive (only one can be visible on your map), e.g. tile layers, and overlays &#8212; all the other stuff you put over the base layers. In this example, we want to have two base layers (grayscale and night-style base map) to switch between, and an overlay to switch on and off &#8212; city markers (those we created earlier). Let&#8217;s create those layers and add the default ones to the map:</p>
+
+<pre><code>var grayscale = L.tileLayer(mapboxUrl, {id: '<a href="javascript:if(confirm('https://mapbox.com/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://mapbox.com/'" tppabs="https://mapbox.com/">MapID</a>', attribution: mapboxAttribution}),
+	streets   = L.tileLayer(mapboxUrl, {id: '<a href="javascript:if(confirm('https://mapbox.com/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://mapbox.com/'" tppabs="https://mapbox.com/">MapID</a>', attribution: mapboxAttribution});
+
+var map = L.map('map', {
+	center: [39.73, -104.99],
+	zoom: 10,
+	layers: [grayscale, cities]
+});</code></pre>
+
+<p>Next, we&#8217;ll create two objects. One will contain our base layers and one will contain our overlays. These are just simple objects with key/value pairs. The key is what sets the text for the layer in the control (e.g. &#8220;Streets&#8221;). The corresponding value is a reference to the layer (e.g. <code>streets</code>).</p>
+
+<pre><code>var baseMaps = {
+	"Grayscale": grayscale,
+	"Streets": streets
+};
+
+var overlayMaps = {
+    "Cities": cities
+};</code></pre>
+
+<p>Now, all that&#8217;s left to do is to create a <a href="../reference.html#control-layers" tppabs="http://leafletjs.com/reference.html#control-layers">Layers Control</a> and add it to the map. The first argument passed when creating the layers control is the base layers object. The second argument is the overlays object. Both arguments are optional &#8212; for example, you can pass just a base layers object by omitting the second argument, or just an overlays objects by passing <code>null</code> as the first argument.</p>
+
+<pre><code>L.control.layers(baseMaps, overlayMaps).addTo(map);</code></pre>
+
+<p>Note that we added <code>grayscale</code>, <code>motorways</code> and <code>cities</code> layers to the map but didn&#8217;t add <code>streets</code>. The layers control is smart enough to detect what layers we&#8217;ve already added and have corresponding checkboxes and radioboxes set.</p>
+
+<p>Also note that when using multiple base layers, only one of them should be added to the map at instantiation, but all of them should be present in the base layers object when creating the layers control.</p>
+
+<p>Now let&#8217;s <a href="layers-control-example.html" tppabs="http://leafletjs.com/examples/layers-control-example.html">view the result on a separate page &rarr;</a></p>
+
+<script>
+	var cities = new L.LayerGroup();
+
+    L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
+	L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
+	L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+	L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+
+    var grayscale = L.tileLayer(MB_URL, {attribution: MB_ATTR, id: 'mapbox.light'}),
+	    streets = L.tileLayer(MB_URL, {attribution: MB_ATTR, id: 'mapbox.streets'});
+
+	var map = L.map('map', {
+		center: [39.73, -104.99],
+		zoom: 10,
+		layers: [grayscale, cities]
+	});
+
+	var baseLayers = {
+		"Grayscale": grayscale,
+		"Streets": streets
+	};
+
+	var overlays = {
+		"Cities": cities
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+</script>
+
+
+
+
+<div class="footer">
+	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+<nav class="ext-links">
+  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="../docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="../docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="../docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+</nav>
+
+<script>
+	hljs.configure({tabReplace: '    '});
+	hljs.initHighlighting();
+
+	(function () {
+		if (document.body.className.indexOf('api-page') !== -1) {
+			var headers = document.getElementsByTagName('h2');
+
+			for (var i = 0, len = headers.length; i < len; i++) {
+				if (headers[i].id) {
+					headers[i].onclick = function(e) {
+						if (e.offsetX < 0) {
+							window.location.hash = '#' + this.id;
+						}
+					};
+				}
+			}
+		}
+	})();
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-4147697-4' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www/')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script type="text/javascript" src="../docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+</body>
+</html>

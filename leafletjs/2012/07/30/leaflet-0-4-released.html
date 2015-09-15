@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Leaflet 0.4 Released - Leaflet - a JavaScript library for interactive maps</title>
+
+	<meta charset=utf-8"utf-8" />
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<link rel="shortcut icon" type="image/x-icon" href="../../../docs/images/favicon.ico" />
+
+	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
+
+	<link rel="stylesheet" href="../../../docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
+	<link rel="stylesheet" href="../../../docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
+
+	<link href="../../../../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
+
+	<script src="../../../docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../../../docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="../../../dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
+	<script src="../../../dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+
+	
+
+	<script>
+		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://cloudmade.com/">CloudMade</a>';
+		CM_URL = '../../../../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://mapbox.com/">Mapbox</a>';
+		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+		OSM_URL = '../../../../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+</head>
+<body class="post-page">
+
+<h1><a href="../../../index.htm" tppabs="http://leafletjs.com/"><img src="../../../docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+<h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
+
+<ul class="nav">
+	<li>
+		
+			<a href="../../../index.html" tppabs="http://leafletjs.com/index.html">Overview</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../examples.html" tppabs="http://leafletjs.com/examples.html">Tutorials</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../reference.html" tppabs="http://leafletjs.com/reference.html">Docs</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../download.html" tppabs="http://leafletjs.com/download.html">Download</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../plugins.html" tppabs="http://leafletjs.com/plugins.html">Plugins</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html" class="active">Blog</a>
+		
+	</li>
+</ul>
+
+<div class="container">
+
+
+<p><a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html">&larr; Back to the list of blog posts</a></p>
+
+<h2>Leaflet 0.4 Released</h2>
+
+<p class="post-meta">Posted on 30 July 2012 by <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a></p>
+
+<p>After 5.5 months of development with <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&to=2012-07-30&type=c  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&to=2012-07-30&type=c'" tppabs="https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&to=2012-07-30&type=c">33 contributors</a> involved since the previous stable release, I&#8217;m proud to announce the release of Leaflet 0.4! It comes with a simpler API and <em>lots</em> of great improvements and important bugfixes, along with a major update to documentation, an official plugins page and the launch of this developer blog. Lets take a look at the improvements one by one.</p>
+
+<h3 id="simpler-api">Simpler API</h3>
+
+<p>Leaflet 0.4 contains several API improvements that allow you to write simpler, terser code (<a href="javascript:if(confirm('http://jquery.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://jquery.com/'" tppabs="http://jquery.com/">jQuery</a>-like), while being backwards compatible with the previous approach (so that you can use both styles).</p>
+
+<pre><code>L.marker([51.5, -0.09])
+	.addTo(map)
+	.bindPopup('Hello world!')
+	.openPopup();
+</code></pre>
+
+<p>First, Leaflet methods now accept <a href="../../../reference.html#latlng" tppabs="http://leafletjs.com/reference.html#latlng">LatLng</a>, <a href="../../../reference.html#latlngbounds" tppabs="http://leafletjs.com/reference.html#latlngbounds">LatLngBounds</a>, <a href="../../../reference.html#point" tppabs="http://leafletjs.com/reference.html#point">Point</a> and <a href="../../../reference.html#bounds" tppabs="http://leafletjs.com/reference.html#bounds">Bounds</a> objects in a simple array form, so you don&#8217;t need to always create them explicitly:</p>
+
+<pre><code>map.panTo([50, 30]); // the same as:
+map.panTo(new L.LatLng(50, 30));
+</code></pre>
+
+<p>Second, Map methods like <a href="../../../reference.html#map-addlayer" tppabs="http://leafletjs.com/reference.html#map-addlayer">addLayer</a>, <a href="../../../reference.html#map-addcontrol" tppabs="http://leafletjs.com/reference.html#map-addcontrol">addControl</a>, <a href="../../../reference.html#map-openpopup" tppabs="http://leafletjs.com/reference.html#map-openpopup">openPopup</a> got their counterparts from the other side:</p>
+
+<pre><code>marker.addTo(map);  // same as map.addLayer(marker)
+control.addTo(map); //         map.addControl(control)
+popup.openOn(map);  //         map.openPopup(popup)
+</code></pre>
+
+<p>Along with the fact that all Leaflet methods that don&#8217;t explicitly return a value return the object itself, this allows for convenient method chaining.</p>
+
+<p>Third, Leaflet classes now come with lowercase shortcuts (class factories) that allow you to create objects without the <code>new</code> keyword, which makes chained code look nicer:</p>
+
+<pre><code>L.map('map').fitWorld(); // same as
+(new L.Map('map')).fitWorld();
+</code></pre>
+
+<h3 id="notable-new-features">Notable New Features</h3>
+
+<div id="map" class="map" style="height: 250px"></div>
+
+<h4 id="improved-zoom-animation">Improved Zoom Animation</h4>
+
+<p>Markers, popups, vector layers and image overlays were hidden during zoom in the previous version, but now (thanks to <a href="javascript:if(confirm('https://github.com/danzel  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel'" tppabs="https://github.com/danzel">Dave Leaver</a>) they all have beautiful, smooth zoom animation unlike any other existing mapping libraries. Try zooming on the map above to see how it looks! If you have thousands of markers on a map though, you can turn off the marker animation if it gets slow with the Map&#8217;s <code>markerZoomAnimation</code> option.</p>
+
+<p>In addition, now tiles won&#8217;t disappear if you zoom in or out more than once quickly.</p>
+
+<h4 id="keyboard-navigation">Keyboard Navigation</h4>
+
+<p>Leaflet maps got a nice accessibility boost in 0.4 with the new keyboard handler (contributed by <a href="javascript:if(confirm('https://github.com/ericmmartinez  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/ericmmartinez'" tppabs="https://github.com/ericmmartinez">Eric Martinez</a>), enabled by default. It allows users to navigate the map by using arrow keys for panning and <code>+/-</code> keys for zooming (after making the map focused either by tabbing to it or clicking on it). Try it on the map above, it feels very nice!</p>
+
+<h4 id="panning-inertia">Panning Inertia</h4>
+
+<p>Another nice improvement comes to the panning experience &#8212; now it has an inertial movement effect, where the map smoothly continues to move after a quick pan. Feels especially natural on touch devices &#8212; and it&#8217;s enabled by default too, try it now! It&#8217;s also highly configurable, allowing you to set the maximum speed of the effect, decceleration, and time threshold under which it triggers.</p>
+
+<h4 id="pinch-zoom-on-android-4">Pinch-Zoom on Android 4</h4>
+
+<p>In the previous Leaflet version, pinch-zoom only worked on iOS devices, but now it finally comes to Android! Works for Android 4+ not only in the stock browser, but also on Chrome and Firefox for Android.</p>
+
+<h4 id="scale-control">Scale Control</h4>
+
+<p>A simple, lightweight control that indicates the scale of the current map view in metric and/or imperial systems. As usual, you can customize its appearance with CSS. Take a look at the bottom left corner of the map above!</p>
+
+<pre><code>L.control.scale().addTo(map);
+</code></pre>
+
+<h4 id="polyline-and-polygon-editing">Polyline and Polygon Editing</h4>
+
+<p>Allows users to edit polylines and polygons with a simple, intuitive interface. Note that this feature will eventually be merged into <a href="javascript:if(confirm('https://github.com/jacobtoye/Leaflet.draw  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/jacobtoye/Leaflet.draw'" tppabs="https://github.com/jacobtoye/Leaflet.draw">Leaflet.draw</a> &#8212; an awesome plugin for drawing shapes by Jacob Toye.</p>
+
+<pre><code>polygon.editing.enable();
+</code></pre>
+
+<h4 id="div-based-icons">Div-based Icons</h4>
+
+<p>In addition to the image-based <a href="../../../reference.html#icon" tppabs="http://leafletjs.com/reference.html#icon">Icon</a> class, Leaflet 0.4 gets a <a href="../../../reference.html#divicon" tppabs="http://leafletjs.com/reference.html#divicon">DivIcon</a> class for creating lightweight div-based markers (that can contain custom HTML and can be styled with CSS). For example, you can see them in action when editing polylines (the square handles), or in the <a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster'" tppabs="https://github.com/danzel/Leaflet.markercluster">Leaflet.markercluster</a> plugin I&#8217;ll talk about later (the colored clusters).</p>
+
+<pre><code>L.marker([50.505, 30.57], {
+	icon: L.divIcon({className: 'my-div-icon'})
+}).addTo(map);
+</code></pre>
+
+<h4 id="rectangle-layer">Rectangle Layer</h4>
+
+<p>Rectangle is a convenient shortcut for creating rectangular area layers. You could do this earlier with polygons, but this is easier:</p>
+
+<pre><code>L.rectangle([[51.505, -0.03], [51.5, -0.045]]).addTo(map);
+</code></pre>
+
+<h3 id="api-improvements">API improvements</h3>
+
+<h4 id="geojson-api">GeoJSON API</h4>
+
+<p><a href="../../../reference.html#geojson" tppabs="http://leafletjs.com/reference.html#geojson">GeoJSON</a> API was improved to be simpler and much more flexible. <a href="javascript:if(confirm('https://github.com/JasonSanford  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/JasonSanford'" tppabs="https://github.com/JasonSanford">Jason Sanford</a> wrote a <a href="../../../examples/geojson.html" tppabs="http://leafletjs.com/examples/geojson.html">great tutorial</a> that showcases the new API. The changes are not backwards-compatible though, so be sure to update your old code.</p>
+
+<h4 id="icon-api">Icon API</h4>
+
+<p><a href="../../../reference.html#icon" tppabs="http://leafletjs.com/reference.html#icon">Icon</a> API was improved to be simpler and more flexible, and the changes are not backwards-compatible too (the old code can be updated very quickly though). Check out the updated <a href="../../../examples/custom-icons.html" tppabs="http://leafletjs.com/examples/custom-icons.html">Custom Icons tutorial</a>, or head straigt to the <a href="../../../reference.html#icon" tppabs="http://leafletjs.com/reference.html#icon">API docs</a>.</p>
+
+<h4 id="control-api">Control API</h4>
+
+<p>Custom Controls are much easier to create now &#8212; checkout the <a href="../../../reference.html#icontrol" tppabs="http://leafletjs.com/reference.html#icontrol">API docs</a> that also have a simple example.</p>
+
+<h4 id="better-events-api">Better Events API</h4>
+
+<p><a href="javascript:if(confirm('https://github.com/Guiswa  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Guiswa'" tppabs="https://github.com/Guiswa">Aaron King</a> brough some improvements to <a href="../../../reference.html#events" tppabs="http://leafletjs.com/reference.html#events">event methods</a>. <code>on</code> and <code>off</code> methods can now accept multiple event types at once as a string space-separated types:</p>
+
+<pre><code>map.on('click dblclick moveend', doStuff);
+</code></pre>
+
+<p>Also, they can accept an object with types and listener functions as key/value pairs, like this:</p>
+
+<pre><code>marker.on({
+	click: onMarkerClick,
+	dragend: onMarkerDragEnd
+});
+</code></pre>
+
+<p>Moreover, now if you only specify an event type to the <code>off</code> method, it will remove all listeners tied to this event.</p>
+
+<pre><code>map.off('click');
+</code></pre>
+
+<h4 id="other-api-improvements">Other API Improvements</h4>
+
+<p>Leaflet 0.4 features more than 30 new methods, options and events across different Leaflet classes that make the API more complete and powerful. Check out the <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-api-improvements'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-api-improvements">full changelog</a> for the complete list.</p>
+
+<h3 id="performance-and-usability-improvements">Performance and Usability Improvements</h3>
+
+<p>You may think that Leaflet is unbelievably fast already, but this version brings several performance improvements that make it even faster.</p>
+
+<ul>
+  <li>Panning, map resizing and pinch-zoom performance was improved (some tricks behind this will be explained in a future blog post).</li>
+  <li>Updating and removing vector layers on the canvas backend (e.g. on Android 2) works many times faster.</li>
+  <li>Box shadows on controls were replaced with simple borders on mobile devices to improve performance.</li>
+  <li>Vector layers won&#8217;t flicker after each panning on iOS now.</li>
+</ul>
+
+<p>In addition, there are several usability improvents not already mentioned:</p>
+
+<ul>
+  <li>Panning now works even if there are markers under the cursor (helps on crowded maps).</li>
+  <li>Popup appearance is slightly improved.</li>
+  <li>Tile layer now has <code>detectRetina</code> option that, when enabled, doubles the tile resolution for retina displays (contributed by <a href="javascript:if(confirm('https://github.com/Mithgol  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Mithgol'" tppabs="https://github.com/Mithgol">Mithgol</a>)	.</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<p>Leaflet 0.4 brings around 45 bugfixes that make it more stable and reliable across all browsers and platforms. Notable bugfixes include the dreaded iOS bug that caused the map to completely disappear after pinch-zooming in some rare cases, broken zooming on IE10 beta, broken Leaflet maps on pages served with an XHTML content type, and incorrect zooming on maps inside a fixed-position element.</p>
+
+<p>Here&#8217;s <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#bug-fixes'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#bug-fixes">a full list of bugfixes</a> in the changelog.</p>
+
+<h3 id="upgrading-from-older-versions">Upgrading from older versions</h3>
+
+<p>Besides the GeoJSON and Icon changes mentioned above, here&#8217;s a <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-breaking-api-changes'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-breaking-api-changes">list of potentially breaking changes</a> &#8212; read it carefully when updating your code (shouldn&#8217;t take much time though).</p>
+
+<p>Download options for Leaflet 0.4 (including the actual download, the CDN-hosted version, and intructions for building manually) are listed on the <a href="../../../download.html" tppabs="http://leafletjs.com/download.html">download page</a>.</p>
+
+<h3 id="code-stats">Code Stats</h3>
+
+<p>I&#8217;m still commited to keeping Leaflet as small and lightweight as possible. Here&#8217;s a breakdown of the current size of the library:</p>
+
+<ul>
+  <li>JavaScript: <strong>27 KB</strong> minified and gzipped (102 KB minified, 176 KB in source, 7578 lines of code)</li>
+  <li>CSS: <strong>1.8 KB</strong> gzipped (8 KB, 377 lines of code)</li>
+  <li>Images: <strong>10 KB</strong> (5 PNG images)</li>
+</ul>
+
+<h3 id="documentation-update">Documentation Update</h3>
+
+<p>Until now, Leaflet API reference was incomplete. But for this release, enourmous effort was put into making it 100% complete, up-to-date and generally the best API reference page you&#8217;ve ever seen. All remaining classes, methods, options, events and properties were carefully documented and more code examples added, and the docs will always be kept up-to-date from now on.</p>
+
+<p>Besides, the design of the page was significantly improved &#8212; with better colors, font, spacing, hyphenation, manually adjusted column widths, etc. &#8212; lots of detail to make it beautiful and easy to read.</p>
+
+<h3 id="plugins-page">Plugins Page</h3>
+
+<p>Leaflet website now has an official <a href="../../../plugins.html" tppabs="http://leafletjs.com/plugins.html">plugins page</a> that lists many Leaflet plugins created by the awesome Leaflet community, adding lots of great features and helping with service integration.</p>
+
+<p>One plugin I&#8217;d like to mention is <a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster'" tppabs="https://github.com/danzel/Leaflet.markercluster">Leaflet.markercluster</a> by <a href="javascript:if(confirm('https://github.com/danzel  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel'" tppabs="https://github.com/danzel">Dave Leaver</a>, currently the best marker clustering plugin I&#8217;ve ever seen among any mapping libraries &#8212; it&#8217;s fast, beautiful, provides smooth animations for clusters, includes a smart Google Earth-style solution for crowded markers on the last zoom level (by <a href="javascript:if(confirm('https://github.com/jawj/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/jawj/'" tppabs="https://github.com/jawj/">George MacKerron</a>), can highlight the area covered by a cluster on hover, works well on mobile devices, and can be customized easily. I think we&#8217;ll cover this plugin in more detail in one of the next posts.</p>
+
+<p>Another plugin to note is <a href="javascript:if(confirm('https://github.com/jacobtoye/Leaflet.draw  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/jacobtoye/Leaflet.draw'" tppabs="https://github.com/jacobtoye/Leaflet.draw">Leaflet.draw</a> by <a href="javascript:if(confirm('https://github.com/jacobtoye  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/jacobtoye'" tppabs="https://github.com/jacobtoye">Jacob Toye</a>, inspired by a similar plugin by <a href="javascript:if(confirm('https://github.com/brunob  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/brunob'" tppabs="https://github.com/brunob">Bruno B</a>. It enables drawing features like polylines, polygons, rectangles, circles and markers through a very nice user-friendly interface with icons and hints. Other editing-related code will probably move into this plugin in future.</p>
+
+<p>Also, thanks to <a href="javascript:if(confirm('https://github.com/kartena/Proj4Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/kartena/Proj4Leaflet'" tppabs="https://github.com/kartena/Proj4Leaflet">Proj4Leaflet</a> plugin by <a href="javascript:if(confirm('http://www.kartena.se/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://www.kartena.se/'" tppabs="http://www.kartena.se/">Kartena</a>, GIS enthusiasts can now enjoy Leaflet for maps with some quirky and rare projections.</p>
+
+<p>One more Leaflet-based creation everyone needs to check out is <a href="javascript:if(confirm('http://flyjs.com/buildings/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://flyjs.com/buildings/'" tppabs="http://flyjs.com/buildings/">OSM Buildings</a> by <a href="javascript:if(confirm('http://flyjs.com/buildings/about.php  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://flyjs.com/buildings/about.php'" tppabs="http://flyjs.com/buildings/about.php">Jan Marsch</a>, an amazing JS library for visualizing 3D OSM building data on top of Leaflet maps. Incredibly cool stuff.</p>
+
+<h3 id="developer-blog">Developer Blog</h3>
+
+<p>This is the first post of the official Leaflet developer blog, that will become the main place for all important Leaflet-related news, tutorials, tips and development notes.</p>
+
+<h3 id="big-players-using-leaflet">Big Players Using Leaflet</h3>
+
+<p>Since the previous release, Leaflet got adopted by many great companies, including <a href="javascript:if(confirm('http://flickr.com/map  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://flickr.com/map'" tppabs="http://flickr.com/map">Flickr</a>, <a href="javascript:if(confirm('http://foursquare.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://foursquare.com/'" tppabs="http://foursquare.com/">foursquare</a> and <a href="javascript:if(confirm('http://blog.wikimedia.org/2012/04/05/new-wikipedia-app-for-ios-and-an-update-for-our-android-app/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://blog.wikimedia.org/2012/04/05/new-wikipedia-app-for-ios-and-an-update-for-our-android-app/'" tppabs="http://blog.wikimedia.org/2012/04/05/new-wikipedia-app-for-ios-and-an-update-for-our-android-app/">Wikimedia Foundation</a> (featured on <a href="../../../index.html" tppabs="http://leafletjs.com/index.html">frontpage</a> now). This is a really exciting time for Leaflet and open source maps, and I look forward to see many other companies follow this awesome trend in future.</p>
+
+<h3 id="thank-you">Thank You</h3>
+
+<p>I&#8217;d like to thank all the awesome people that helped Leaflet becoming what it is now &#8212; contributed code, reported bugs, used Leaflet on their websites, told collegues about it, talked about it on conferences, etc. Keep up the great work!</p>
+
+<p>Special thanks go to <a href="javascript:if(confirm('https://github.com/danzel  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel'" tppabs="https://github.com/danzel">Dave Leaver</a> for his inspiring contributions including improved zoom animation and the state-of-the-art clustering plugin, and <a href="javascript:if(confirm('https://github.com/JasonSanford  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/JasonSanford'" tppabs="https://github.com/JasonSanford">Jason Sanford</a> for his friendly support (and setting up the Leaflet CDN among other things).</p>
+
+<p>And, of course, thanks to my amazing company, <a href="javascript:if(confirm('http://cloudmade.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://cloudmade.com/'" tppabs="http://cloudmade.com/">CloudMade</a>, for embracing open source and supporting this development.</p>
+
+<p>Sincerely, <br />
+Vladimir Agafonkin, Leaflet maintainer.</p>
+
+<script>
+	var map = L.map('map').setView([51.503, -0.09], 13);
+
+	L.tileLayer(MB_URL, {attribution: MB_ATTR, id: 'examples.map-i875mjb7'}).addTo(map);
+
+	var polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	], {color: 'red'}).addTo(map).bindPopup('I am an editable polygon.');
+
+	polygon.editing.enable();
+
+	L.control.scale().addTo(map);
+
+	L.marker([51.5, -0.095]).addTo(map)
+		.bindPopup("http://leafletjs.com/2012/07/30/<b>Hello world!</b><br />I am a popup.").openPopup();
+
+	L.marker([51.505, -0.115]).addTo(map).bindPopup("I am a second popup.");
+	L.marker([51.496, -0.13]).addTo(map).bindPopup("I am a third popup.");
+
+	L.rectangle([
+		[51.505, -0.03],
+		[51.5, -0.045]
+	], {weight: 1, opacity: 0.8}).addTo(map).bindPopup('I am a rectangle.');
+</script>
+
+
+
+<div id="disqus_thread"></div>
+
+<script>
+	var disqus_shortname = 'leafletjs';
+//	var disqus_developer = 1;
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+
+<a href="javascript:if(confirm('http://disqus.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://disqus.com/'" tppabs="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<div class="footer">
+	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+<nav class="ext-links">
+  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="../../../docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="../../../docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="../../../docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+</nav>
+
+<script>
+	hljs.configure({tabReplace: '    '});
+	hljs.initHighlighting();
+
+	(function () {
+		if (document.body.className.indexOf('api-page') !== -1) {
+			var headers = document.getElementsByTagName('h2');
+
+			for (var i = 0, len = headers.length; i < len; i++) {
+				if (headers[i].id) {
+					headers[i].onclick = function(e) {
+						if (e.offsetX < 0) {
+							window.location.hash = '#' + this.id;
+						}
+					};
+				}
+			}
+		}
+	})();
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-4147697-4' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www/')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script type="text/javascript" src="../../../docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+</body>
+</html>

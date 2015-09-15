@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Leaflet 0.7.5 Release - Leaflet - a JavaScript library for interactive maps</title>
+
+	<meta charset=utf-8"utf-8" />
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<link rel="shortcut icon" type="image/x-icon" href="../../../docs/images/favicon.ico" />
+
+	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
+
+	<link rel="stylesheet" href="../../../docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
+	<link rel="stylesheet" href="../../../docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
+
+	<link href="../../../../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
+
+	<script src="../../../docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../../../docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="../../../dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
+	<script src="../../../dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+
+	
+
+	<script>
+		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://cloudmade.com/">CloudMade</a>';
+		CM_URL = '../../../../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://mapbox.com/">Mapbox</a>';
+		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+		OSM_URL = '../../../../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+</head>
+<body class="post-page">
+
+<h1><a href="../../../index.htm" tppabs="http://leafletjs.com/"><img src="../../../docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+<h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
+
+<ul class="nav">
+	<li>
+		
+			<a href="../../../index.html" tppabs="http://leafletjs.com/index.html">Overview</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../examples.html" tppabs="http://leafletjs.com/examples.html">Tutorials</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../reference.html" tppabs="http://leafletjs.com/reference.html">Docs</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../download.html" tppabs="http://leafletjs.com/download.html">Download</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../plugins.html" tppabs="http://leafletjs.com/plugins.html">Plugins</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html" class="active">Blog</a>
+		
+	</li>
+</ul>
+
+<div class="container">
+
+
+<p><a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html">&larr; Back to the list of blog posts</a></p>
+
+<h2>Leaflet 0.7.5 Release</h2>
+
+<p class="post-meta">Posted on 01 September 2015 by <a href="">Iv谩n S谩nchez Ortega</a></p>
+
+<p>While the Leaflet development team is busy with the 1.0 betas, there have been a few bugs affecting 0.7.3, important enough to spend some effort in porting a fix back. They are not much, though:</p>
+
+<ul>
+  <li>Workarounds for issues derived from new browsers (touch-capable browsers, tile loading in recent Chrome)</li>
+  <li>Backport fixes for styling and events for canvas-based vector layers</li>
+  <li>Fix edge cases involving <code>maxZoom</code>, <code>minZoom</code>, <code>maxNativeZoom</code> on tile layers and popup events</li>
+  <li>Revert a regression bug in 0.7.4 which conflicted with marker clusters</li>
+</ul>
+
+<p>The detailed list of changes can be found <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#074-sep-01-2015'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#074-sep-01-2015">in the changelog</a></p>
+
+<p>The fact that it has been over <em>a year and half</em> since the last stable release should be a testament of the quality and stability of the Leaflet API. If you think that development of Leaflet 1.0 is taking a long time, remember that we want to keep the same level of quality for the final 1.0 release.</p>
+
+<p>The 0.7.x releases will not implement new features. Stay tuned for more news on the 1.0 beta releases instead!</p>
+
+<h3 id="get-the-update">Get the update</h3>
+
+<p>Developers using Leaflet 0.7.3 are advised to upgrade to 0.7.5 to prevent problems arising from modern browers.</p>
+
+<p>The release is also available through NPM, Bower, <a href="javascript:if(confirm('http://cdn.leafletjs.com/downloads/leaflet-0.7.5.zip  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://cdn.leafletjs.com/downloads/leaflet-0.7.5.zip'" tppabs="http://cdn.leafletjs.com/downloads/leaflet-0.7.5.zip">direct download</a>, or through our CDN:</p>
+
+<pre><code>&lt;link rel="stylesheet" href="cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" /&gt;
+&lt;script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"&gt;&lt;/script&gt;
+</code></pre>
+
+
+<div id="disqus_thread"></div>
+
+<script>
+	var disqus_shortname = 'leafletjs';
+//	var disqus_developer = 1;
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+
+<a href="javascript:if(confirm('http://disqus.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://disqus.com/'" tppabs="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<div class="footer">
+	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+<nav class="ext-links">
+  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="../../../docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="../../../docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="../../../docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+</nav>
+
+<script>
+	hljs.configure({tabReplace: '    '});
+	hljs.initHighlighting();
+
+	(function () {
+		if (document.body.className.indexOf('api-page') !== -1) {
+			var headers = document.getElementsByTagName('h2');
+
+			for (var i = 0, len = headers.length; i < len; i++) {
+				if (headers[i].id) {
+					headers[i].onclick = function(e) {
+						if (e.offsetX < 0) {
+							window.location.hash = '#' + this.id;
+						}
+					};
+				}
+			}
+		}
+	})();
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-4147697-4' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www/')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script type="text/javascript" src="../../../docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+</body>
+</html>

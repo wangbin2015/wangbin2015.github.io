@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>Leaflet.MarkerCluster 0.1 Released - Leaflet - a JavaScript library for interactive maps</title>
+
+	<meta charset=utf-8"utf-8" />
+
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<link rel="shortcut icon" type="image/x-icon" href="../../../docs/images/favicon.ico" />
+
+	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
+
+	<link rel="stylesheet" href="../../../docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
+	<link rel="stylesheet" href="../../../docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
+
+	<link href="../../../../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
+
+	<script src="../../../docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../../../docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="../../../dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
+	<script src="../../../dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+
+	
+
+	<script>
+		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://cloudmade.com/">CloudMade</a>';
+		CM_URL = '../../../../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery 漏 <a href="http://mapbox.com/">Mapbox</a>';
+		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+		OSM_URL = '../../../../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+	</script>
+</head>
+<body class="post-page">
+
+<h1><a href="../../../index.htm" tppabs="http://leafletjs.com/"><img src="../../../docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+<h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
+
+<ul class="nav">
+	<li>
+		
+			<a href="../../../index.html" tppabs="http://leafletjs.com/index.html">Overview</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../examples.html" tppabs="http://leafletjs.com/examples.html">Tutorials</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../reference.html" tppabs="http://leafletjs.com/reference.html">Docs</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../download.html" tppabs="http://leafletjs.com/download.html">Download</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../plugins.html" tppabs="http://leafletjs.com/plugins.html">Plugins</a>
+		
+	</li>
+	<li>
+		
+			<a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html" class="active">Blog</a>
+		
+	</li>
+</ul>
+
+<div class="container">
+
+
+<p><a href="../../../blog.html" tppabs="http://leafletjs.com/blog.html">&larr; Back to the list of blog posts</a></p>
+
+<h2>Leaflet.MarkerCluster 0.1 Released</h2>
+
+<p class="post-meta">Posted on 20 August 2012 by <a href="javascript:if(confirm('https://github.com/danzel/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/'" tppabs="https://github.com/danzel/">Dave Leaver</a></p>
+
+<p><em>This is a guest post from Dave Leaver, an active Leaflet contributor (particularly, he implemented 0.4 zoom animation improvements) and also the author of the best marker clustering plugin out there, which is presented in this post.</em></p>
+
+<p>Almost anyone who has a map with markers on it will eventually end up having those markers overlap. At my day job at <a href="javascript:if(confirm('http://www.smartrak.co.nz/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://www.smartrak.co.nz/'" tppabs="http://www.smartrak.co.nz/" title="Smartrak GPS Fleet Tracking">Smartrak</a> we regularly have customers with thousands of points on the map. When you zoom it out, these markers all overlap and make the map look messy and crowded. There are also cases where the markers overlap even on the maximum zoom level, which makes interacting with them impossible. Also, having a large amount of markers on the map usually ends up lowering performance to an unacceptable level.</p>
+
+<p>To improve this, many sites use marker clustering, a technique of grouping markers that are close to each other together on each zom level. One good example of this is <a href="javascript:if(confirm('http://www.redfin.com/homes-for-sale  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://www.redfin.com/homes-for-sale'" tppabs="http://www.redfin.com/homes-for-sale">Redfin</a>. We needed something like this, but in Leaflet. In the spirit of open source we developed and released our solution so that everyone can take advantage of it. So we proudly present <a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster'" tppabs="https://github.com/danzel/Leaflet.markercluster">Leaflet.MarkerCluster</a>.</p>
+
+<div id="map" class="map" style="height: 320px"></div>
+
+<h3 id="plugin-features">Features</h3>
+
+<p>The clusterer has all sorts of great built in behaviour:</p>
+
+<ul>
+  <li>Everything is brilliantly animated. As you zoom in and out you can logically see which clusters have become which markers.</li>
+  <li>It is very fast, so for example <a href="javascript:if(confirm('http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.50000.html  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.50000.html'" tppabs="http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.50000.html">clustering 50,000 points</a> isn&#8217;t a problem. Also, all the heavy calculation happens on initial page load, and after this the map works smoothly.</li>
+  <li>Markers that don&#8217;t need clustering aren&#8217;t and will be visible at the relevant zoom levels.</li>
+  <li>When you mouse over a cluster the bounds of the marker within that cluster are shown.</li>
+  <li>Clicking a cluster will zoom you in to the bounds of its children.</li>
+  <li>At the bottom zoom level if there are still clusters you can click on them to &#8220;spiderfy&#8221; them, which makes interaction with individual markers within the cluster possible (based on <a href="javascript:if(confirm('https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet'" tppabs="https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet">jawj&#8217;s Overlapping MarkerSpidifer</a>).</li>
+  <li>Cluster and markers that are further than a screen width from the view port are removed from the map to increase performance.</li>
+  <li>As with core Leaflet, everything works on both mobile and desktop browsers and is tested all the way back to IE6.</li>
+  <li>Supports adding and removing markers after being added to the map (see Best Practices below!).</li>
+  <li>It is highly customizable, allowing you to easily change the appearance of clusters, disable certain features and add custom behavior on cluster interaction.</li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+
+<p>Using the Marker Clusterer is easy, just replace your existing <a href="../../../examples/layers-control.html" tppabs="http://leafletjs.com/examples/layers-control.html">LayerGroup</a> usage with an <code>L.MarkerClusterGroup</code>:</p>
+
+<pre><code>var markers = new L.MarkerClusterGroup();
+
+markers.addLayer(L.marker([175.3107, -37.7784]));
+// add more markers here...
+
+map.addLayer(markers);
+</code></pre>
+
+<p>You can also use all of the <a href="../../../reference.html#featuregroup" tppabs="http://leafletjs.com/reference.html#featuregroup">FeatureGroup events</a> (and additionally <code>clusterclick</code>) for both individual markers and clusters.</p>
+
+<pre><code>markers.on('clusterclick', function (a) { alert('Cluster Clicked'); });
+markers.on('click', function (a) { alert('Marker Clicked'); });
+</code></pre>
+
+<h3 id="best-practices">Best Practices</h3>
+
+<ul>
+  <li>To get the best performance from the clusterer, you should add all of your markers to it before adding it to the map (like we did in the example).</li>
+  <li>If you are going to move a marker that is in a L.MarkerClusterGroup you must remove it first, then move it, then re-add it. If you move it while it is in the MarkerClusterGroup we can&#8217;t track it and that marker will become lost.</li>
+  <li>Although the clusterer supports having markers added and removed from it while it is on the map it does not perform as well as when they are added while it is not on the map. If you need to do a large update to the markers in a <code>MarkerClusterGroup</code> you may want to remove it from the map, change the markers then re-add it.</li>
+</ul>
+
+<h3 id="get-it">Get It</h3>
+
+<p>You can download the latest release on the <a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster/downloads  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster/downloads'" tppabs="https://github.com/danzel/Leaflet.markercluster/downloads">github download page</a>.</p>
+
+<h3 id="the-technical-bits">The Technical Bits</h3>
+
+<p>The underlying clustering algorithm (<code>MarkerClusterGroup._cluster</code>) is plain greedy clustering.</p>
+
+<pre class="no-highlight"><code>foreach marker
+    if there is a cluster within the clustering distance, join it.
+    else if there is an unclustered marker within the clustering distance, form a cluster with it.
+</code></pre>
+
+<p>The first clustering step we do for the maximum (bottom most) zoom level, we then cluster all of the resulting markers and clusters to generate the next zoom level up and so on until we have reached the top.
+These clusters are stored in a tree (A cluster contains its child clusters) with good geospatial qualities. We use this tree to optimise identifying what markers and clusters are on screen at any particular zoom level.</p>
+
+<h4 id="ldistancegrid">L.DistanceGrid</h4>
+
+<p><code>L.DistanceGrid</code> provides some nice optimization when clustering (contributed by <a href="javascript:if(confirm('http://agafonkin.com/en/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en/'" tppabs="http://agafonkin.com/en/">Vladimir</a>, Leaflet maintainer).</p>
+
+<p>To cluster the markers, we need to compare every marker with every other marker to try form a cluster.
+To make this quicker, we need reduce the set of markers we need to compare with. <code>DistanceGrid</code> does this by putting all markers on a grid sized the same as the distance we need to search. Then, when looking for a marker to cluster with, we only need to look at markers in the grid square we are in and its immediate neighbours. This can be quite a big performance win as we only look at markers that we are likely to form a cluster with. (<a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster/pull/29  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster/pull/29'" tppabs="https://github.com/danzel/Leaflet.markercluster/pull/29">check out the initial PR for numbers</a>)</p>
+
+<h3 id="closing-words">Closing Words</h3>
+
+<p>I hope you enjoy using the clusterer and get everything you want out of it. If you do use it in a public site please <a href="mailto:danzel@localhost.geek.nz">throw me an email</a> so I can check it out and potentially link it on the github site.</p>
+
+<p>If you have any issues also please log a bug on <a href="javascript:if(confirm('https://github.com/danzel/Leaflet.markercluster  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://github.com/danzel/Leaflet.markercluster'" tppabs="https://github.com/danzel/Leaflet.markercluster">the github page</a>.</p>
+
+<p>Enjoy!<br />
+Dave Leaver.</p>
+
+<link rel="stylesheet" href="../../../../leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" tppabs="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
+
+<link rel="stylesheet" href="../../../../leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" tppabs="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+<!--[if lte IE 8]><link rel="stylesheet" href="../../../../leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.ie.css" tppabs="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.ie.css" /><![endif]-->
+<script src="../../../../leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js" tppabs="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+
+<script src="../../../../leaflet.github.io/Leaflet.markercluster/example/realworld.388.js" tppabs="http://leaflet.github.io/Leaflet.markercluster/example/realworld.388.js"></script>
+
+<script>
+	var mapbox = new L.TileLayer(MB_URL, {maxZoom: 18, attribution: MB_ATTR, id: 'examples.map-i875mjb7'}),
+		latlng = new L.LatLng(-37.820, 175.217);
+
+	var map = new L.Map('map', {center: latlng, zoom: 15, layers: [mapbox]});
+
+	map.attributionControl.addAttribution("Points &copy 2012 LINZ");
+
+	var markers = new L.MarkerClusterGroup();
+
+	for (var i = 0; i < addressPoints.length; i++) {
+		var a = addressPoints[i];
+		var title = a[2];
+		var marker = new L.Marker(new L.LatLng(a[0], a[1]), { title: title });
+		marker.bindPopup(title);
+		markers.addLayer(marker);
+	}
+
+	map.addLayer(markers);
+</script>
+
+
+
+<div id="disqus_thread"></div>
+
+<script>
+	var disqus_shortname = 'leafletjs';
+//	var disqus_developer = 1;
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+
+<a href="javascript:if(confirm('http://disqus.com/  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://disqus.com/'" tppabs="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<div class="footer">
+	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+</div>
+
+</div>
+
+<nav class="ext-links">
+  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="../../../docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n该文件未被 Teleport Pro 下载，因为 它位于起始地址以设置的边界以外的域或路径中。  \n\n你想要从服务器打开它吗?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="../../../docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n该文件未被 Teleport Pro 下载，因为 是一个使用未支持协议的地址(例如: gopher)。  \n\n你想要从服务器打开它吗?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="../../../docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+</nav>
+
+<script>
+	hljs.configure({tabReplace: '    '});
+	hljs.initHighlighting();
+
+	(function () {
+		if (document.body.className.indexOf('api-page') !== -1) {
+			var headers = document.getElementsByTagName('h2');
+
+			for (var i = 0, len = headers.length; i < len; i++) {
+				if (headers[i].id) {
+					headers[i].onclick = function(e) {
+						if (e.offsetX < 0) {
+							window.location.hash = '#' + this.id;
+						}
+					};
+				}
+			}
+		}
+	})();
+</script>
+
+<script>
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-4147697-4' ]);
+	_gaq.push([ '_trackPageview' ]);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www/')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script type="text/javascript" src="../../../docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+</body>
+</html>

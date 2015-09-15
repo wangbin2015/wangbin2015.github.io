@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Leaflet Dev Blog</title>
+
+	<link href="http://leafletjs.com/atom.xml" rel="self"/>
+	<link href="http://leafletjs.com"/>
+
+	<updated>2015-09-13T09:38:50+00:00</updated>
+	<id>http://leafletjs.com/</id>
+
+	<author>
+		<name>Vladimir Agafonkin</name>
+	</author>
+
+	
+	<entry>
+		<title>Leaflet 0.7.5 Release</title>
+		<link href="http://leafletjs.com/2015/09/01/leaflet-0.7.4-released.html"/>
+		<updated>2015-09-01T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2015/09/01/leaflet-0.7.4-released</id>
+		<content type="html">&lt;p&gt;While the Leaflet development team is busy with the 1.0 betas, there have been a few bugs affecting 0.7.3, important enough to spend some effort in porting a fix back. They are not much, though:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Workarounds for issues derived from new browsers (touch-capable browsers, tile loading in recent Chrome)&lt;/li&gt;
+  &lt;li&gt;Backport fixes for styling and events for canvas-based vector layers&lt;/li&gt;
+  &lt;li&gt;Fix edge cases involving &lt;code&gt;maxZoom&lt;/code&gt;, &lt;code&gt;minZoom&lt;/code&gt;, &lt;code&gt;maxNativeZoom&lt;/code&gt; on tile layers and popup events&lt;/li&gt;
+  &lt;li&gt;Revert a regression bug in 0.7.4 which conflicted with marker clusters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The detailed list of changes can be found &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#074-sep-01-2015&quot;&gt;in the changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The fact that it has been over &lt;em&gt;a year and half&lt;/em&gt; since the last stable release should be a testament of the quality and stability of the Leaflet API. If you think that development of Leaflet 1.0 is taking a long time, remember that we want to keep the same level of quality for the final 1.0 release.&lt;/p&gt;
+
+&lt;p&gt;The 0.7.x releases will not implement new features. Stay tuned for more news on the 1.0 beta releases instead!&lt;/p&gt;
+
+&lt;h3 id=&quot;get-the-update&quot;&gt;Get the update&lt;/h3&gt;
+
+&lt;p&gt;Developers using Leaflet 0.7.3 are advised to upgrade to 0.7.5 to prevent problems arising from modern browers.&lt;/p&gt;
+
+&lt;p&gt;The release is also available through NPM, Bower, &lt;a href=&quot;http://cdn.leafletjs.com/downloads/leaflet-0.7.5.zip&quot;&gt;direct download&lt;/a&gt;, or through our CDN:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;cdn.leafletjs.com/leaflet-0.7.5/leaflet.css&quot; /&amp;gt;
+&amp;lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Announcing Leaflet 1.0 beta 1</title>
+		<link href="http://leafletjs.com/2015/07/15/leaflet-1.0-beta1-released.html"/>
+		<updated>2015-07-15T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2015/07/15/leaflet-1.0-beta1-released</id>
+		<content type="html">&lt;p&gt;Over the past year, we set out on an ambitious quest to implement pretty much all the features Leaflet users have been asking for years, while heavily focusing on performance, code cleanup and stabilizing the API. It was an extremely challenging road with many bumps, but now we&amp;#8217;re finally approaching the finish line.&lt;/p&gt;
+
+&lt;p&gt;Today, I&amp;#8217;m happy and proud to announce the release of &lt;em&gt;Leaflet 1.0 beta 1&lt;/em&gt;, our first formal release after more than a year of work and a thousand commits by 36 contributors.&lt;/p&gt;
+
+&lt;h3 id=&quot;whats-new&quot;&gt;What&amp;#8217;s new&lt;/h3&gt;
+
+&lt;p&gt;1.0 will be the best Leaflet release ever, bringing a &lt;em&gt;huge&lt;/em&gt; amount of improvements and bugfixes. Highlights of the release include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;huge&lt;/em&gt; performance improvements, especially for vector layers&lt;/li&gt;
+  &lt;li&gt;flyover animations (zooming and panning in a curve with &lt;code&gt;map.flyTo&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;fractional zoom level support (&lt;code&gt;map.setZoom(12.34)&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;much nicer tile loading with less flickering&lt;/li&gt;
+  &lt;li&gt;custom pane management (including multiple vector layer panes)&lt;/li&gt;
+  &lt;li&gt;better support for non-standard projections&lt;/li&gt;
+  &lt;li&gt;more accessibility features&lt;/li&gt;
+  &lt;li&gt;lots of bugfixes and stability improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A much more detailed list of changes can be found &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md&quot;&gt;in the changelog&lt;/a&gt; (beware, it&amp;#8217;s a long read).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/07c492b230f1a3762118eaf457f0cc182fb0a98d/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f32353339352f313936353934392f32613934343166342d383263312d313165332d393836372d6230343033663266643966372e676966&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;beta-cycle-and-upgrading&quot;&gt;Beta cycle and upgrading&lt;/h3&gt;
+
+&lt;p&gt;The release sports a number of minor breaking API changes, and some of the plugins will have to be updated. To make the upgrade less painful, we&amp;#8217;re doing a short beta cycle before the final 1.0 to allow users and plugin developers to catch up to the changes while we find and fix remaining issues.&lt;/p&gt;
+
+&lt;p&gt;A lot of effort since the last stable release has been put into refactoring. Many changes that we made are not visible to users, but make the source code much simpler and easier to understand and also open up many new possibilities for our wonderful community of plugin developers. Basically, half of Leaflet code was fully rewritten under the hood, and now the codebase is ready for some pretty extreme extensions (who just said &amp;#8220;rotation&amp;#8221; and &amp;#8220;WebGL&amp;#8221;?).&lt;/p&gt;
+
+&lt;p&gt;We plan to write a comprehensive 1.0 upgrade guide before the release. Meanwhile, if something breaks after you upgrade to 1.0-beta, please look through the changelog. If you can&amp;#8217;t find the corresponding breaking change, please file a GitHub issue.&lt;/p&gt;
+
+&lt;p&gt;The API reference for 1.0 is temporarily &lt;a href=&quot;http://mourner.github.io/Leaflet/reference.html&quot;&gt;available here&lt;/a&gt;. It&amp;#8217;s built from Leaflet &lt;code&gt;gh-pages-master&lt;/code&gt; branch &amp;mdash; fixes and additions are welcome!&lt;/p&gt;
+
+&lt;h3 id=&quot;get-the-new-release&quot;&gt;Get the new release&lt;/h3&gt;
+
+&lt;p&gt;Test out the new release on your app, and help us catch remaining issues to bring the final 1.0 close to perfection!&lt;/p&gt;
+
+&lt;p&gt;You can use our CDN:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.css&quot; /&amp;gt;
+&amp;lt;script src=&quot;http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The release is also available through NPM, Bower, and &lt;a href=&quot;https://github.com/Leaflet/Leaflet/archive/v1.0.0-beta.1.zip&quot;&gt;GitHub download&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;thank-you&quot;&gt;Thank you&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#8217;m incredibly thankful to everyone who made this release possible &amp;mdash; by using the library, spreading the word about it, reporting issues and sending your contributions. Your help is invaluable!&lt;/p&gt;
+
+&lt;p&gt;Special thanks to &lt;a href=&quot;https://github.com/IvanSanchez&quot;&gt;Iván Sánchez&lt;/a&gt;, &lt;a href=&quot;https://github.com/yohanboniface&quot;&gt;Yohan Boniface&lt;/a&gt;, &lt;a href=&quot;https://github.com/jfirebaugh&quot;&gt;John Firebaugh&lt;/a&gt;, &lt;a href=&quot;https://github.com/danzel&quot;&gt;Dave Leaver&lt;/a&gt;, &lt;a href=&quot;https://github.com/patrickarlt&quot;&gt;Patrick Arlt&lt;/a&gt;, &lt;a href=&quot;https://github.com/perliedman&quot;&gt;Per Liedman&lt;/a&gt;, &lt;a href=&quot;https://github.com/Jakobud&quot;&gt;Jake Wilson&lt;/a&gt; and &lt;a href=&quot;https://github.com/snkashis&quot;&gt;Steve Kashishian&lt;/a&gt; for lots of amazing contributions and support throughout the last year. All these people are now a part of the core Leaflet team. Keep&amp;#8217;em coming!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.reactiongifs.com/r/msy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Love,&lt;br /&gt;
+Vladimir.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet is Alive and Kicking, Stay Tuned for 1.0!</title>
+		<link href="http://leafletjs.com/2015/07/01/leaflet-is-alive-and-kicking.html"/>
+		<updated>2015-07-01T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2015/07/01/leaflet-is-alive-and-kicking</id>
+		<content type="html">&lt;p&gt;I know this blog hasn&amp;#8217;t been updated for a long time &amp;mdash; 1.5 years actually! But that&amp;#8217;s just because I&amp;#8217;m a lazy blogger, and there has been &lt;em&gt;a lot&lt;/em&gt; going on with Leaflet during this time despite the lack of blog posts and major releases.&lt;/p&gt;
+
+&lt;p&gt;We&amp;#8217;re on the finishing line of releasing Leaflet 1.0 &amp;mdash; the biggest and greatest Leaflet release &lt;em&gt;ever&lt;/em&gt;. The latest stable version, 0.7.3, is already perfect, so you won&amp;#8217;t believe how much awesome stuff we&amp;#8217;ve managed to pack into the upcoming release &amp;mdash; 914 commits later! But I&amp;#8217;ll leave that for a separate &lt;code&gt;1.0-beta1&lt;/code&gt; blog post after we fix &lt;a href=&quot;https://github.com/Leaflet/Leaflet/pull/3307&quot;&gt;that one last issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, I&amp;#8217;m happy to present you the new redesigned &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet website&lt;/a&gt;! Now finally mobile-friendly, simple, clean, minimal and modern, just like the library itself. Also notice the floating menu when scrolling down the &lt;a href=&quot;/reference.html&quot;&gt;Docs&lt;/a&gt; and &lt;a href=&quot;/plugins.html&quot;&gt;Plugins&lt;/a&gt; pages, a highly requested feature that&amp;#8217;ll make navigation much easier. Big thanks to &lt;a href=&quot;https://github.com/rowanhogan&quot;&gt;Rowan Hogan&lt;/a&gt; for the help with the new design!&lt;/p&gt;
+
+&lt;p&gt;P.S. I recently made a quirky 13-minute video for the &lt;a href=&quot;http://www.geospatialworldforum.org/&quot;&gt;Geospatial World Forum&lt;/a&gt;, sharing the fun story behind Leaflet and how it became what it is today. Watch it and share it with your geofriends so that we can make the GIS world fun again!&lt;/p&gt;
+
+&lt;p&gt;Love,&lt;br /&gt;
+Vladimir.&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/NLbyHffKQuU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.7 Release, MapBox and Plans for Future</title>
+		<link href="http://leafletjs.com/2013/11/18/leaflet-0-7-released-plans-for-future.html"/>
+		<updated>2013-11-18T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2013/11/18/leaflet-0-7-released-plans-for-future</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;Leaflet 0.7 Released &amp;mdash; with IE11 touch support, upscaling tiles and tons of other improvements and bugfixes! Meanwhile, I&amp;#8217;ve joined the MapBox team full-time&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;After another 5 months of active development with &lt;a href=&quot;https://github.com/Leaflet/Leaflet/graphs/contributors?from=2013-06-27&amp;amp;to=2013-11-18&amp;amp;type=c&quot;&gt;lots of contributors involved&lt;/a&gt;, I&amp;#8217;m happy to announce the &lt;strong&gt;release of Leaflet 0.7&lt;/strong&gt; stable.&lt;/p&gt;
+
+&lt;p&gt;This is a bugfix-heavy release &amp;mdash; as Leaflet becomes more and more stable feature-wise, the focus shifts towards stability, usability and API improvements over new features. I&amp;#8217;ve also been holding back some of the planned deep refactorings (which I&amp;#8217;ll talk about later in the post) until 0.7 is released, so that the heavy risky stuff is done at the beginning of the release cycle, leaving plenty of room to catch bugs and incompatible changes that can unintentionally break existing apps.&lt;/p&gt;
+
+&lt;h3 id=&quot;joining-mapbox&quot;&gt;Joining MapBox&lt;/h3&gt;
+
+&lt;p&gt;In other news, I &lt;a href=&quot;https://www.mapbox.com/blog/vladimir-agafonkin-joins-mapbox/&quot;&gt;joined the MapBox team full-time&lt;/a&gt;. This is extremely exciting for me, as this was my dream job for quite a while &amp;mdash; &lt;a href=&quot;https://www.mapbox.com&quot;&gt;MapBox&lt;/a&gt; have changed the world of interactive mapping forever with all their amazing work, having some of the greatest geomapping engineers and designers of the world working together, pushing the boundaries of what&amp;#8217;s possible and inspiring others every day.&lt;/p&gt;
+
+&lt;p&gt;For Leaflet, this can only mean very good things &amp;mdash; much more time on Leaflet development, more enthusiasm, more play, more crazy experiments with maps (like &lt;a href=&quot;https://www.mapbox.com/blog/dynamic-hill-shading/&quot;&gt;this one&lt;/a&gt;), and lots of learning. I&amp;#8217;m now one of the happiest map geeks ever. Stay tuned for tons of awesome!&lt;/p&gt;
+
+&lt;h3 id=&quot;changes&quot;&gt;0.7 changes&lt;/h3&gt;
+
+&lt;p&gt;You can check out the &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#07-dev-master&quot;&gt;detailed changelog&lt;/a&gt; of what&amp;#8217;s already done over the recent months for 0.7 (about 90 improvements and bugfixes), but I&amp;#8217;d like to mention some highlights:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added the ability to &lt;strong&gt;upscale tiles&lt;/strong&gt; to higher zoom levels (e.g. have zoom 19-20 when the source has 18 max).&lt;/li&gt;
+  &lt;li&gt;Added support for &lt;strong&gt;IE11 touch devices&lt;/strong&gt;. MS unexpectedly broke their pointer API compatibility between Developer Preview and final IE11 release, and we eventually rewrote quite a bit of code to make everything work smoothly across all IE versions (both dekstop &amp;amp; mobile), fixing a bunch of IE10 bugs along the way as well.&lt;/li&gt;
+  &lt;li&gt;Officially &lt;strong&gt;dropped IE6 support&lt;/strong&gt; (nobody cares anyway) and cleaned up/fixed IE7-8 styles.&lt;/li&gt;
+  &lt;li&gt;Dropped the need for &lt;strong&gt;IE conditional comment&lt;/strong&gt; when including Leaflet, making the snippet much simpler &amp;mdash; all IE7/8-specific styles got simplified and moved to the main &lt;code&gt;leaflet.css&lt;/code&gt; file.&lt;/li&gt;
+  &lt;li&gt;Fixed an &lt;strong&gt;obscure iOS7 memory leak&lt;/strong&gt; that crashed Safari when you tried to create several thousands of layers (e.g. markers for clustering). I still don&amp;#8217;t understand why it happens, but we managed to fix it with a bit of trickery.&lt;/li&gt;
+  &lt;li&gt;Fixed a critical &lt;strong&gt;Chrome for Android&lt;/strong&gt; bug that made the tiles disappear after zooming on some devices.&lt;/li&gt;
+  &lt;li&gt;Removed some &lt;strong&gt;Earth-related hardcode&lt;/strong&gt; in TileLayer implementation to make it easier for plugins like Proj4Leaflet to handle complex projections without horrible hacks. Some other work in this direction to follow in 0.8.&lt;/li&gt;
+  &lt;li&gt;Improved &lt;strong&gt;panning performance&lt;/strong&gt; on complex pages with significant number of elements &amp;mdash; we found out that simple things like setting a different cursor to &lt;code&gt;document&lt;/code&gt; (for a &amp;#8220;grabbing&amp;#8221; hand) caused noticeable performance hit on some browsers (Chrome in particular).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Changed the way maxBounds works&lt;/strong&gt;, not enforcing a derived &lt;code&gt;minZoom&lt;/code&gt; from it but restricting panning across lower zoom levels, along with some tricks to make it play better with panning inertia or offset zooming, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plans-for-08&quot;&gt;Plans for 0.8&lt;/h3&gt;
+
+&lt;p&gt;There are several big undertakings in refactoring Leaflet that I&amp;#8217;d want to switch to immediately after releasing 0.7 &amp;mdash; I&amp;#8217;ve been holding them off for too long, and they&amp;#8217;ll be extremely beneficial for plugin and Leaflet-based API authors. Some of them are already in progress.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Refactoring the &lt;strong&gt;layers&lt;/strong&gt; architecture. Currently there&amp;#8217;s a lot of duplication of logic across implementation of different layers (map, markers, vector layers, etc.), specifically event handling, zoom animation logic, zIndex and pane handling (what appears on top of what etc.). Making the code consistent, more universal and shared across different layers will make it much easier to customize layers and make your own (e.g. integrate d3, etc.)&lt;/li&gt;
+  &lt;li&gt;Splitting the huge TileLayer implementation into &lt;strong&gt;GridLayer and TileLayer&lt;/strong&gt;, separating image tiles-related logic and grid-logic that will make other grid-like layer implementations (e.g. UTFGrid interaction or tiled GeoJSON) much simpler.&lt;/li&gt;
+  &lt;li&gt;Refactoring &lt;strong&gt;zoom animation logic&lt;/strong&gt; to make the long-awaited Easey-style animations (zoom-panning between points) possible.&lt;/li&gt;
+  &lt;li&gt;Refactoring &lt;strong&gt;projections&lt;/strong&gt; code to make it easier to set up flat maps and weird projections and customize how Leaflet handles them.&lt;/li&gt;
+  &lt;li&gt;Refactoring the &lt;strong&gt;vector layers&lt;/strong&gt; code to make it possible to use different rendering backends (Canvas, SVG, etc.) for different layers on the same map and switch between them easily. This will also open it up for interesting extensions, like indexing layers with &lt;a href=&quot;https://github.com/mourner/rbush&quot;&gt;RBush&lt;/a&gt; for fast interaction features.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While it&amp;#8217;s an ambitious plan and it may take more than one stable release, finishing all those refactorings will mean that Leaflet is getting ready for a 1.0 release.&lt;/p&gt;
+
+&lt;p&gt;Another direction I&amp;#8217;d like to focus on after releasing 0.7 is &lt;strong&gt;website and documentation improvements&lt;/strong&gt;. First, Leaflet is begging for &lt;strong&gt;more step-by-step tutorials&lt;/strong&gt; (with more advanced features like custom layers, custom controls, etc.), and I&amp;#8217;d love to do a docs/tutorials sprint some time in future. Second, the presentation could be significantly improved &amp;mdash; adding a prominent visual &lt;strong&gt;showcase&lt;/strong&gt; or app gallery, making Leaflet users more prominent with some logos and quotes/testimonials, and updating the layout/design for a more stylish, clean look, etc.&lt;/p&gt;
+
+&lt;p&gt;Hope that gives a good glimpse of the stuff to expect from Leafet in near future, and don&amp;#8217;t hesitate to ask any questions in comments &amp;mdash; I&amp;#8217;ll be happy to answer!&lt;/p&gt;
+
+&lt;p&gt;Grab the CDN links or downloads for the new release on the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt; as always. Be sure to try it out on your apps and report any regressions so that we can patch them up immediately. And lets make some nice Twitter buzz about the release as usual!&lt;/p&gt;
+
+&lt;p&gt;To all the people wo&amp;#8217;ve been involved in Leaflet contributions, bug reports, mailing list, Twitter buzz, making awesome apps and spreading the word about Leaflet &amp;mdash; thank you! You are the most awesome community ever.&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;br /&gt;
+Vladimir.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet Plugin Authoring Guide</title>
+		<link href="http://leafletjs.com/2013/06/28/leaflet-plugin-authoring-guide.html"/>
+		<updated>2013-06-28T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2013/06/28/leaflet-plugin-authoring-guide</id>
+		<content type="html">&lt;p&gt;One of the greatest things about Leaflet is its powerful plugin ecosystem.
+The &lt;a href=&quot;http://leafletjs.com/plugins.html&quot;&gt;Leaflet plugins page&lt;/a&gt; lists dozens of awesome plugins, and more are being added every week.&lt;/p&gt;
+
+&lt;p&gt;This guide lists a number of best practices for publishing a Leaflet plugin that meets the quality standards of Leaflet itself. Also available &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md&quot;&gt;in the repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;presentation&quot;&gt;Presentation&lt;/h3&gt;
+
+&lt;h4 id=&quot;repository&quot;&gt;Repository&lt;/h4&gt;
+
+&lt;p&gt;The best place to put your Leaflet plugin to is a separate &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt; repository.
+If you create a collection of plugins for different uses,
+don&amp;#8217;t put them in one repo &amp;mdash;
+it&amp;#8217;s usually easier to work with small, self-contained plugins in individual repositories.&lt;/p&gt;
+
+&lt;h4 id=&quot;demo&quot;&gt;Demo&lt;/h4&gt;
+
+&lt;p&gt;The most essential thing to do when publishing a plugin is to include a demo that showcases what the plugin does &amp;mdash;
+it&amp;#8217;s usually the first thing people will look for.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to put up a demo is using &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;.
+A good &lt;a href=&quot;https://help.github.com/articles/creating-project-pages-manually&quot;&gt;starting point&lt;/a&gt; is creating a &lt;code&gt;gh-pages&lt;/code&gt; branch in your repo and adding an &lt;code&gt;index.html&lt;/code&gt; page to it  &amp;mdash;
+after pushing, it&amp;#8217;ll be published as &lt;code&gt;http://&amp;lt;user&amp;gt;.github.io/&amp;lt;repo&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;readme&quot;&gt;Readme&lt;/h4&gt;
+
+&lt;p&gt;The next thing you need to have is a descriptive &lt;code&gt;README.md&lt;/code&gt; in the root of the repo (or a link to a website with a similar content).
+At a minimum it should contain the following items:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;name of the plugin&lt;/li&gt;
+  &lt;li&gt;a simple, concise description of what it does&lt;/li&gt;
+  &lt;li&gt;requirements
+    &lt;ul&gt;
+      &lt;li&gt;Leaflet version&lt;/li&gt;
+      &lt;li&gt;other external dependencies (if any)&lt;/li&gt;
+      &lt;li&gt;browser / device compatibility&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;links to demos&lt;/li&gt;
+  &lt;li&gt;instructions for including the plugin&lt;/li&gt;
+  &lt;li&gt;simple usage code example&lt;/li&gt;
+  &lt;li&gt;API reference (methods, options, events)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;license&quot;&gt;License&lt;/h4&gt;
+
+&lt;p&gt;Every open source repository should include a license.
+If you don&amp;#8217;t know what open source license to choose for your code,
+&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT License&lt;/a&gt; and &lt;a href=&quot;http://opensource.org/licenses/BSD-2-Clause&quot;&gt;BSD 2-Clause License&lt;/a&gt; are both good choices.
+You can either put it in the repo as a &lt;code&gt;LICENSE&lt;/code&gt; file or just link to the license from the Readme.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;h4 id=&quot;file-structure&quot;&gt;File Structure&lt;/h4&gt;
+
+&lt;p&gt;Keep the file structure clean and simple,
+don&amp;#8217;t pile up lots of files in one place  &amp;mdash;
+make it easy for a new person to find their way in your repo.&lt;/p&gt;
+
+&lt;p&gt;A barebones repo for a simple plugin would look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;my-plugin.js
+README.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An example of a file structure for a more sophisticated plugin:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/src        JS source files
+/dist       minified plugin JS, CSS, images
+/spec       test files
+/examples   HTML examples of plugin usage
+README.md
+LICENSE
+package.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;code-conventions&quot;&gt;Code Conventions&lt;/h4&gt;
+
+&lt;p&gt;Everyone&amp;#8217;s tastes are different, but it&amp;#8217;s important to be consistent with whatever conventions you choose for your plugin.&lt;/p&gt;
+
+&lt;p&gt;For a good starting point, check out &lt;a href=&quot;https://github.com/airbnb/javascript&quot;&gt;Airbnb JavaScript Guide&lt;/a&gt;.
+Leaflet follows pretty much the same conventions
+except for using smart tabs (hard tabs for indentation, spaces for alignment)
+and putting a space after the &lt;code&gt;function&lt;/code&gt; keyword.&lt;/p&gt;
+
+&lt;h4 id=&quot;plugin-api&quot;&gt;Plugin API&lt;/h4&gt;
+
+&lt;p&gt;Never expose global variables in your plugin.&lt;br /&gt;
+If you have a new class, put it directly in the &lt;code&gt;L&lt;/code&gt; namespace (&lt;code&gt;L.MyPlugin&lt;/code&gt;).&lt;br /&gt;
+If you inherit one of the existing classes, make it a sub-property (&lt;code&gt;L.TileLayer.Banana&lt;/code&gt;).&lt;br /&gt;
+If you want to add new methods to existing Leaflet classes, you can do it like this: &lt;code&gt;L.Marker.include({myPlugin: …})&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Function, method and property names should be in &lt;code&gt;camelCase&lt;/code&gt;.&lt;br /&gt;
+Class names should be in &lt;code&gt;CapitalizedCamelCase&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you have a lot of arguments in your function, consider accepting an options object instead (putting default values where possible so that users don&amp;#8217;t need specify all of them):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// bad
+marker.myPlugin(&#39;bla&#39;, &#39;foo&#39;, null, {}, 5, 0);
+
+// good
+marker.myPlugin(&#39;bla&#39;, {
+	optionOne: &#39;foo&#39;,
+	optionThree: 5
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And most importantly, keep it simple. Leaflet is all about &lt;em&gt;simplicity&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;br /&gt;
+Vladimir.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.6 Released, Code Sprint in DC with MapBox</title>
+		<link href="http://leafletjs.com/2013/06/26/leaflet-0-6-released-dc-code-sprint-mapbox.html"/>
+		<updated>2013-06-26T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2013/06/26/leaflet-0-6-released-dc-code-sprint-mapbox</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;Leaflet 0.6 released &amp;mdash; with nicer controls, better usability and tons of API improvements and various bugfixes &amp;mdash; more than 120 changes! The first ever Leaflet Code Sprint happening in Washington, DC with the MapBox team&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;After 5 months of active development with &lt;a href=&quot;https://github.com/Leaflet/Leaflet/graphs/contributors?from=2013-01-18&amp;amp;to=2013-06-26&amp;amp;type=c&quot;&gt;36 contributors involved&lt;/a&gt; since the previous major version, today I&amp;#8217;m excited to finally announce the &lt;strong&gt;release of Leaflet 0.6&lt;/strong&gt; stable.&lt;/p&gt;
+
+&lt;p&gt;0.6 highlights include nicer controls, lots of interaction usability improvements, many new API methods, events and options, ability to save layers as &lt;a href=&quot;http://en.wikipedia.org/wiki/GeoJSON&quot;&gt;GeoJSON&lt;/a&gt;, much better test infrastructure and TONS of bugfixes that made Leaflet significantly more reliable. Checkout the huge detailed list of changes (&lt;strong&gt;120+ total&lt;/strong&gt;!) &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md&quot;&gt;in the changelog&lt;/a&gt;. The &lt;a href=&quot;../../../reference.html&quot;&gt;API reference&lt;/a&gt; was also updated to reflect all these changes.&lt;/p&gt;
+
+&lt;p&gt;The final push for the release (last 2 days) was a part of the first ever &lt;strong&gt;Leaflet Code Sprint&lt;/strong&gt;, organized in Washington DC by the amazing &lt;a href=&quot;http://mapbox.com&quot;&gt;MapBox&lt;/a&gt;, a company responsible for perhaps the greatest innovations and awesome tools in the geospatial world of recent years, now &lt;a href=&quot;mapbox.com/blog/mapbox-js-with-leaflet/&quot;&gt;using Leaflet for its JS API&lt;/a&gt; too. The sprint will go on for a week and there are many more awesome improvements to come in upcoming days (and lots of partying as well).&lt;/p&gt;
+
+&lt;p&gt;On a related note, even GitHub itself is now &lt;a href=&quot;https://github.com/blog/1541-geojson-rendering-improvements&quot;&gt;using Leaflet for GeoJSON visualizations&lt;/a&gt;, along with &lt;a href=&quot;github.com/Leaflet/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; &amp;amp; MapBox tiles! How cool is that?&lt;/p&gt;
+
+&lt;p&gt;Special thanks go to &lt;a href=&quot;http://universalmind.com/&quot;&gt;Universal Mind&lt;/a&gt;, my awesome employer and sponsor of Leaflet development for the past 5 months, to the most active contributors &amp;mdash; &lt;a href=&quot;https://github.com/jfirebaugh&quot;&gt;John Firebaugh&lt;/a&gt; and &lt;a href=&quot;https://github.com/tmcw&quot;&gt;Tom MacWright&lt;/a&gt; of &lt;a href=&quot;http://mapbox.com&quot;&gt;MapBox&lt;/a&gt;, &lt;a href=&quot;https://github.com/danzel&quot;&gt;Dave Leaver&lt;/a&gt; and &lt;a href=&quot;https://github.com/jacobtoye&quot;&gt;Jacob Toye&lt;/a&gt; of &lt;a href=&quot;http://www.smartrak.co.nz/&quot;&gt;Smartrak&lt;/a&gt;, &lt;a href=&quot;https://github.com/snkashis&quot;&gt;Steve Kashishian&lt;/a&gt; of &lt;a href=&quot;http://www.firstmilegeo.com/&quot;&gt;First Mile Geo&lt;/a&gt;, and to everyone else involved in contributions, bug reports, mailing list, Twitter, making awesome apps, etc. You&amp;#8217;re such an amazing community! I&amp;#8217;m really happy to be a part of it.&lt;/p&gt;
+
+&lt;p&gt;Grab the CDN links or downloads for the new release on the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt; as always. Enjoy! And be sure try it out and report any regressions in your apps so that we can patch them up immediately.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;update&lt;/strong&gt; (June 27): 0.6.1 hotfix released with a couple of regressions fixed (particularly the one with FF scroll-zooming too fast).&lt;br /&gt;
+&lt;strong&gt;update&lt;/strong&gt; (June 28): 0.6.2 hotfix released with a couple more minor issues fixed.&lt;br /&gt;
+&lt;strong&gt;update&lt;/strong&gt; (July 17): 0.6.3 released with lots of regressions and bugs fixed.&lt;br /&gt;
+&lt;strong&gt;update&lt;/strong&gt; (July 25): 0.6.4 released with a fix to 0.6.3 regression.&lt;/p&gt;
+
+&lt;p&gt;P.S. Everyone who tweets/posts about the new Leaflet release or why he loves Leaflet over the next few days will get a karma boost of over 9000 points. I heard that from a passing monk in Georgetown yesterday, true story!&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;br /&gt;
+Vladimir, Leaflet creator and maintainer.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet.draw 0.2 Released</title>
+		<link href="http://leafletjs.com/2013/02/20/guest-post-draw.html"/>
+		<updated>2013-02-20T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2013/02/20/guest-post-draw</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;This is a guest post from Jacob Toye, an active Leaflet contributor and also the author of the most sophisticated vector drawing and editing plugin out there, which is presented in this post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw/&quot;&gt;Leaflet.draw&lt;/a&gt; was born from the need to provide users with the ability draw polygons on the map. Leaflet already provided a very nice way of editing existing polylines and polygons. The logical next step was to expand on this functionality to allow the creation of these layers, and ultimately the other vector layers.&lt;/p&gt;
+
+&lt;p&gt;Upon release the immediate response from the Leaflet community was very positive. It became clear that the next step would be progressing this tool to a state where users could edit and delete shapes in addition to creating them. This is ultimately what Leaflet.draw 0.2 set out to do.&lt;/p&gt;
+
+&lt;p&gt;After a few months of off and on development, with most of this spare time kindy sponsored by my employer &lt;a href=&quot;http://www.smartrak.co.nz&quot; title=&quot;GPS Fleet Management solutions&quot; target=&quot;_blank&quot;&gt;Smartrak&lt;/a&gt;, we proudly present Leaflet.draw 0.2 &amp;#8211; your one stop plugin for drawing, editing and deleting vectors and markers on Leaflet maps. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note from Vladimir: the polyline/polygon editing functionality from Leaflet core has been moved into this plugin where it fits much better. The plugin in turn has moved into &lt;a href=&quot;https://github.com/Leaflet&quot;&gt;Leaflet organization on GitHub&lt;/a&gt; and is now officially supported by the Leaflet development team. Note that version 0.2 currently depends on Leaflet master (in-progress development version) to work.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You can download the latest version from the &lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw/&quot; target=&quot;_blank&quot;&gt;github repo&lt;/a&gt;. Please report any bugs you come across on the &lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw/issues&quot; target=&quot;_blank&quot;&gt;issues page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div id=&quot;map&quot; class=&quot;map&quot; style=&quot;height: 288px&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;plugin-features&quot;&gt;Features&lt;/h3&gt;
+
+&lt;p&gt;Leaflet.draw is designed to not only be easy for end users to use, but also for developers to integrate.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Draw shapes on your map with easy to use drawing tools.&lt;/li&gt;
+  &lt;li&gt;Edit and delete vectors and markers.&lt;/li&gt;
+  &lt;li&gt;Super customizable:
+    &lt;ul&gt;
+      &lt;li&gt;Customize the styles of each shape to fit in with your maps theme.&lt;/li&gt;
+      &lt;li&gt;Pick and choose the which tools you want to use.&lt;/li&gt;
+      &lt;li&gt;Roll your own by simply using the drawing and editing handlers.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Event based system allows you to perform any necessary actions when shapes are created, edited or deleted.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-to-use&quot;&gt;How to use&lt;/h3&gt;
+
+&lt;p&gt;Leaflet.draw is very simple to drop into you Leaflet application. The following example will add both the draw and edit toolbars to a map:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// create a map in the &quot;map&quot; div, set the view to a given place and zoom
+var map = L.map(&#39;map&#39;).setView([175.30867, -37.77914], 13);
+
+// add an OpenStreetMap tile layer
+L.tileLayer(&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;, {
+	attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;
+}).addTo(map);
+
+// Initialize the FeatureGroup to store editable layers
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+// Initialize the draw control and pass it the FeatureGroup of editable layers
+var drawControl = new L.Control.Draw({
+	edit: {
+		featureGroup: drawnItems
+	}
+});
+map.addControl(drawControl);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;handling-newly-created-layers&quot;&gt;Handling newly created layers&lt;/h4&gt;
+
+&lt;p&gt;Once you have successfully added the Leaflet.draw plugin your map you will want to respond to the different actions users can trigger.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map.on(&#39;draw:created&#39;, function (e) {
+	var type = e.layerType,
+		layer = e.layer;
+
+	if (type === &#39;marker&#39;) {
+		// Do marker specific actions
+	}
+
+	// Do whatever else you need to. (save to db, add to map etc)
+	drawnItems.addLayer(layer);
+});
+
+map.on(&#39;draw:edited&#39;, function () {
+	// Update db to save latest changes.
+});
+
+map.on(&#39;draw:deleted&#39;, function () {
+	// Update db to save latest changes.
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw&quot; target=&quot;_blank&quot;&gt;Leaflet.draw README&lt;/a&gt; for more details on how to configure the plugin.&lt;/p&gt;
+
+&lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
+
+&lt;p&gt;First and foremost I would like to thank my employer &lt;a href=&quot;http://www.smartrak.co.nz&quot; title=&quot;GPS Fleet Management solutions&quot; target=&quot;_blank&quot;&gt;Smartrak&lt;/a&gt;. Without their attitude to open source software I would not have had the time to complete this plugin.&lt;/p&gt;
+
+&lt;p&gt;The Leaflet developer community have been great in supporting this plugin through inspiration, pull requests and issue reports. Special thanks to: &lt;a href=&quot;https://github.com/mourner&quot; title=&quot;@mourner&quot; target=&quot;_blank&quot;&gt;@mourner&lt;/a&gt;, &lt;a href=&quot;https://github.com/danzel&quot; title=&quot;@danzel&quot; target=&quot;_blank&quot;&gt;@danzel&lt;/a&gt;, &lt;a href=&quot;https://github.com/brunob&quot; title=&quot;@brunob&quot; target=&quot;_blank&quot;&gt;@brunob&lt;/a&gt;, &lt;a href=&quot;https://github.com/tnightingale&quot; title=&quot;@tnightingale&quot; target=&quot;_blank&quot;&gt;@tnightingale&lt;/a&gt;, &lt;a href=&quot;https://github.com/Starefossen&quot; title=&quot;@Starefossen&quot; target=&quot;_blank&quot;&gt;@Starefossen&lt;/a&gt;, and &lt;a href=&quot;https://github.com/shramov&quot; title=&quot;@shramov&quot; target=&quot;_blank&quot;&gt;@shramov&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;closing&quot;&gt;Closing&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#8217;ve had a great time implementing this plugin. I hope you enjoy using it. If you have a question or just want to say hi, send me an email at &lt;a href=&quot;mailto:jacob.toye@gmail.com&quot;&gt;jacob.toye@gmail.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Cheers,
+Jacob Toye&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.com/Leaflet.draw/lib/leaflet/leaflet.css&quot; /&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.com/Leaflet.draw/leaflet.draw.css&quot; /&gt;
+
+&lt;!--[if lte IE 8]&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.com/Leaflet.draw/lib/leaflet/leaflet.ie.css&quot; /&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.com/Leaflet.draw/leaflet.draw.ie.css&quot; /&gt;
+&lt;![endif]--&gt;
+&lt;script src=&quot;http://leaflet.github.com/Leaflet.draw/libs/leaflet/leaflet.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;http://leaflet.github.com/Leaflet.draw/leaflet.draw.js&quot;&gt;&lt;/script&gt;
+
+&lt;style&gt;
+	.leaflet-bar {
+		border: none;
+	}
+&lt;/style&gt;
+
+&lt;script&gt;
+	// create a map in the &quot;map&quot; div, set the view to a given place and zoom
+	var map = L.map(&#39;map&#39;).setView([-37.77914, 175.30867], 16);
+
+	// add an OpenStreetMap tile layer
+	L.tileLayer(&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;, {
+	  attribution: &#39;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&#39;
+	}).addTo(map);
+
+	// Initialize the FeatureGroup to store editable layers
+	var drawnItems = new L.FeatureGroup();
+	map.addLayer(drawnItems);
+
+	// Initialize the draw control and pass it the FeatureGroup of editable layers
+	var drawControl = new L.Control.Draw({
+		edit: {
+			featureGroup: drawnItems
+		}
+	});
+	map.addControl(drawControl);
+
+	map.on(&#39;draw:created&#39;, function (e) {
+		var type = e.layerType,
+			layer = e.layer;
+
+		if (type === &#39;marker&#39;) {
+			layer.bindPopup(&#39;A popup!&#39;);
+		}
+
+		// Do whatever else you need to. (save to db, add to map etc)
+		drawnItems.addLayer(layer);
+	});
+&lt;/script&gt;
+
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.5 Released</title>
+		<link href="http://leafletjs.com/2013/01/17/leaflet-0-5-released.html"/>
+		<updated>2013-01-17T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2013/01/17/leaflet-0-5-released</id>
+		<content type="html">&lt;p&gt;Rejoice, everyone &amp;mdash; after 4.5 months of development with &lt;a href=&quot;https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-08-30&amp;amp;to=2013-01-17&amp;amp;type=c&quot;&gt;26 contributors involved&lt;/a&gt; since the previous major release, I&amp;#8217;m happy to announce the release of Leaflet 0.5 stable, hooray!&lt;/p&gt;
+
+&lt;p&gt;0.5 highlights include IE10 touch devices and Metro apps support, retina-enabled markers, a much better panning inertia implementation, hand cursors for dragging and a new zoom control design. But the real power of this release comes with about a hundred of subtle improvements and bugfixes, improving usability, performance and overall &amp;#8220;feel&amp;#8221; of browsing the map even further.&lt;/p&gt;
+
+&lt;p&gt;As always, you can find CDN links and downloads for the new release on the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The huge detailed list of changes is documented in the &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md&quot;&gt;changelog&lt;/a&gt;. Be sure to read the &amp;#8220;Breaking Changes&amp;#8221; part of it before upgrading to avoid any issues! The &lt;a href=&quot;../../../reference.html&quot;&gt;API reference&lt;/a&gt; was updated to accomodate all the changes too.&lt;/p&gt;
+
+&lt;p&gt;In other news, &lt;a href=&quot;https://github.com/Leaflet/Leaflet&quot;&gt;Leaflet repository&lt;/a&gt; has moved to &lt;a href=&quot;https://github.com/Leaflet&quot;&gt;its own GitHub organization&lt;/a&gt;, along with the two of the most important plugins &amp;mdash; &lt;a href=&quot;https://github.com/Leaflet/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; and &lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw&quot;&gt;Leaflet.draw&lt;/a&gt;. As some of you have noticed, this is one of the clues to a really nice upcoming announcement about Leaflet future &amp;mdash; stay tuned. :)&lt;/p&gt;
+
+&lt;p&gt;Thanks to everyone! It&amp;#8217;s absolutely breathtaking to see what the Leaflet community has achieved over the last months with all the contributions, amazing projects and demos, and I&amp;#8217;m honestly proud to be a part of it.&lt;/p&gt;
+
+&lt;p&gt;P.S. I also heard in a dream that everyone who tweets about the new Leaflet release will get an incredible luck boost for the next month. Sounds like true to me.&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;br /&gt;
+Vladimir, Leaflet creator and maintainer.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.4.5 Bugfix Release and Plans for 0.5</title>
+		<link href="http://leafletjs.com/2012/10/25/leaflet-0-4-5-bugfix-release-and-plans-for-0.5.html"/>
+		<updated>2012-10-25T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2012/10/25/leaflet-0-4-5-bugfix-release-and-plans-for-0.5</id>
+		<content type="html">&lt;h3 id=&quot;release&quot;&gt;0.4.5 release&lt;/h3&gt;
+
+&lt;p&gt;While we contrinue working on the next major release (0.5), today we decided to release &lt;strong&gt;Leaflet 0.4.5&lt;/strong&gt;. It contains only one small but important bugfix for &lt;strong&gt;wonky zoom animation&lt;/strong&gt; on upcoming &lt;strong&gt;Chrome 23&lt;/strong&gt; (currently in beta and to be released in a couple of weeks) and &lt;strong&gt;Internet Explorer 10&lt;/strong&gt; (that will eventually hit Windows 7 in addition to Windows 8).&lt;/p&gt;
+
+&lt;p&gt;Everyone is encouraged to upgrade (before Chrome 23 turns stable). As always, you can find CDN links and downloads for the new release on the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;plans-for-05&quot;&gt;Plans for 0.5&lt;/h3&gt;
+
+&lt;p&gt;As Leaflet approaches feature-complete state and API stabilization, we naturally shift our focus from new features towards performance and usability improvements, better browser and device support, bugfixes and internal refactoring to make certain parts of Leaflet (like projections and vector rendering) easier to extend and customize for plugin developers and advanced users.&lt;/p&gt;
+
+&lt;p&gt;Highlights of things already implemented in the &lt;code&gt;master&lt;/code&gt; branch include touch interaction support for &lt;strong&gt;IE10 touch devices and Metro apps&lt;/strong&gt; and a more smooth and responsive panning inertia. Follow the &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md&quot;&gt;full changelog&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;We&amp;#8217;re also in the process of a major refactoring of vector rendering code to allow much simpler extension of base functionality with custom shapes, additional rendering systems (like WebGL in addition to existing SVG/VML and Canvas renderers), easy switching between renderers, also making the code simpler and easier to understand.&lt;/p&gt;
+
+&lt;p&gt;The same goes for projection-related code to make using Leaflet with non-standard projections easier, inluding plain projections for game and indoor maps. Thanks to these changes, in addition to making advanced GIS folks happier, we&amp;#8217;ll see much more awesome Leaflet projects like &lt;a href=&quot;http://www.ign.com/wikis/the-elder-scrolls-5-skyrim/interactive-maps/Skyrim&quot;&gt;interactive Skyrim map on IGN&lt;/a&gt; or &lt;a href=&quot;http://www.wowhead.com/map&quot;&gt;World of Warcraft map on Wowhead&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another important task for upcoming weeks is working more closely with plugin developers. In particular, one of the areas of focus will be the &lt;a href=&quot;https://github.com/jacobtoye/Leaflet.draw&quot;&gt;Leaflet.draw&lt;/a&gt; plugin that will soon become a state-of-the-art map vector drawing/editing solution, just as Dave&amp;#8217;s &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; became the best marker clustering solution among all mapping platforms out there.&lt;/p&gt;
+
+&lt;p&gt;The current plan is to release 0.5 stable sometime in mid-November. Stay tuned!&lt;/p&gt;
+
+&lt;h3 id=&quot;contributing-to-leaflet&quot;&gt;Contributing to Leaflet&lt;/h3&gt;
+
+&lt;p&gt;Leaflet is a true open source project, so we&amp;#8217;re always happy to meet new contributors, accept patches and bugreports. To help others become involved with Leaflet development and make managing contributions easier, I&amp;#8217;ve put up a &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md&quot;&gt;Contributing to Leaflet&lt;/a&gt; guide with best practices and advices &amp;mdash; check it out!&lt;/p&gt;
+
+&lt;p&gt;Thanks to everyone! Leaflet has got quite an amazing community which makes me really proud. Keep it up!&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;br /&gt;
+Vladimir, Leaflet author and maintainer.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet.MarkerCluster 0.1 Released</title>
+		<link href="http://leafletjs.com/2012/08/20/guest-post-markerclusterer-0-1-released.html"/>
+		<updated>2012-08-20T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2012/08/20/guest-post-markerclusterer-0-1-released</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;This is a guest post from Dave Leaver, an active Leaflet contributor (particularly, he implemented 0.4 zoom animation improvements) and also the author of the best marker clustering plugin out there, which is presented in this post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Almost anyone who has a map with markers on it will eventually end up having those markers overlap. At my day job at &lt;a href=&quot;http://www.smartrak.co.nz/&quot; title=&quot;Smartrak GPS Fleet Tracking&quot;&gt;Smartrak&lt;/a&gt; we regularly have customers with thousands of points on the map. When you zoom it out, these markers all overlap and make the map look messy and crowded. There are also cases where the markers overlap even on the maximum zoom level, which makes interacting with them impossible. Also, having a large amount of markers on the map usually ends up lowering performance to an unacceptable level.&lt;/p&gt;
+
+&lt;p&gt;To improve this, many sites use marker clustering, a technique of grouping markers that are close to each other together on each zom level. One good example of this is &lt;a href=&quot;http://www.redfin.com/homes-for-sale&quot;&gt;Redfin&lt;/a&gt;. We needed something like this, but in Leaflet. In the spirit of open source we developed and released our solution so that everyone can take advantage of it. So we proudly present &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;Leaflet.MarkerCluster&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div id=&quot;map&quot; class=&quot;map&quot; style=&quot;height: 320px&quot;&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;plugin-features&quot;&gt;Features&lt;/h3&gt;
+
+&lt;p&gt;The clusterer has all sorts of great built in behaviour:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Everything is brilliantly animated. As you zoom in and out you can logically see which clusters have become which markers.&lt;/li&gt;
+  &lt;li&gt;It is very fast, so for example &lt;a href=&quot;http://danzel.github.com/Leaflet.markercluster/example/marker-clustering-realworld.50000.html&quot;&gt;clustering 50,000 points&lt;/a&gt; isn&amp;#8217;t a problem. Also, all the heavy calculation happens on initial page load, and after this the map works smoothly.&lt;/li&gt;
+  &lt;li&gt;Markers that don&amp;#8217;t need clustering aren&amp;#8217;t and will be visible at the relevant zoom levels.&lt;/li&gt;
+  &lt;li&gt;When you mouse over a cluster the bounds of the marker within that cluster are shown.&lt;/li&gt;
+  &lt;li&gt;Clicking a cluster will zoom you in to the bounds of its children.&lt;/li&gt;
+  &lt;li&gt;At the bottom zoom level if there are still clusters you can click on them to &amp;#8220;spiderfy&amp;#8221; them, which makes interaction with individual markers within the cluster possible (based on &lt;a href=&quot;https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet&quot;&gt;jawj&amp;#8217;s Overlapping MarkerSpidifer&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Cluster and markers that are further than a screen width from the view port are removed from the map to increase performance.&lt;/li&gt;
+  &lt;li&gt;As with core Leaflet, everything works on both mobile and desktop browsers and is tested all the way back to IE6.&lt;/li&gt;
+  &lt;li&gt;Supports adding and removing markers after being added to the map (see Best Practices below!).&lt;/li&gt;
+  &lt;li&gt;It is highly customizable, allowing you to easily change the appearance of clusters, disable certain features and add custom behavior on cluster interaction.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;Using the Marker Clusterer is easy, just replace your existing &lt;a href=&quot;../../../examples/layers-control.html&quot;&gt;LayerGroup&lt;/a&gt; usage with an &lt;code&gt;L.MarkerClusterGroup&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var markers = new L.MarkerClusterGroup();
+
+markers.addLayer(L.marker([175.3107, -37.7784]));
+// add more markers here...
+
+map.addLayer(markers);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also use all of the &lt;a href=&quot;../../../reference.html#featuregroup&quot;&gt;FeatureGroup events&lt;/a&gt; (and additionally &lt;code&gt;clusterclick&lt;/code&gt;) for both individual markers and clusters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;markers.on(&#39;clusterclick&#39;, function (a) { alert(&#39;Cluster Clicked&#39;); });
+markers.on(&#39;click&#39;, function (a) { alert(&#39;Marker Clicked&#39;); });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;best-practices&quot;&gt;Best Practices&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To get the best performance from the clusterer, you should add all of your markers to it before adding it to the map (like we did in the example).&lt;/li&gt;
+  &lt;li&gt;If you are going to move a marker that is in a L.MarkerClusterGroup you must remove it first, then move it, then re-add it. If you move it while it is in the MarkerClusterGroup we can&amp;#8217;t track it and that marker will become lost.&lt;/li&gt;
+  &lt;li&gt;Although the clusterer supports having markers added and removed from it while it is on the map it does not perform as well as when they are added while it is not on the map. If you need to do a large update to the markers in a &lt;code&gt;MarkerClusterGroup&lt;/code&gt; you may want to remove it from the map, change the markers then re-add it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;get-it&quot;&gt;Get It&lt;/h3&gt;
+
+&lt;p&gt;You can download the latest release on the &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster/downloads&quot;&gt;github download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-technical-bits&quot;&gt;The Technical Bits&lt;/h3&gt;
+
+&lt;p&gt;The underlying clustering algorithm (&lt;code&gt;MarkerClusterGroup._cluster&lt;/code&gt;) is plain greedy clustering.&lt;/p&gt;
+
+&lt;pre class=&quot;no-highlight&quot;&gt;&lt;code&gt;foreach marker
+    if there is a cluster within the clustering distance, join it.
+    else if there is an unclustered marker within the clustering distance, form a cluster with it.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first clustering step we do for the maximum (bottom most) zoom level, we then cluster all of the resulting markers and clusters to generate the next zoom level up and so on until we have reached the top.
+These clusters are stored in a tree (A cluster contains its child clusters) with good geospatial qualities. We use this tree to optimise identifying what markers and clusters are on screen at any particular zoom level.&lt;/p&gt;
+
+&lt;h4 id=&quot;ldistancegrid&quot;&gt;L.DistanceGrid&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;L.DistanceGrid&lt;/code&gt; provides some nice optimization when clustering (contributed by &lt;a href=&quot;http://agafonkin.com/en/&quot;&gt;Vladimir&lt;/a&gt;, Leaflet maintainer).&lt;/p&gt;
+
+&lt;p&gt;To cluster the markers, we need to compare every marker with every other marker to try form a cluster.
+To make this quicker, we need reduce the set of markers we need to compare with. &lt;code&gt;DistanceGrid&lt;/code&gt; does this by putting all markers on a grid sized the same as the distance we need to search. Then, when looking for a marker to cluster with, we only need to look at markers in the grid square we are in and its immediate neighbours. This can be quite a big performance win as we only look at markers that we are likely to form a cluster with. (&lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster/pull/29&quot;&gt;check out the initial PR for numbers&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h3 id=&quot;closing-words&quot;&gt;Closing Words&lt;/h3&gt;
+
+&lt;p&gt;I hope you enjoy using the clusterer and get everything you want out of it. If you do use it in a public site please &lt;a href=&quot;mailto:danzel@localhost.geek.nz&quot;&gt;throw me an email&lt;/a&gt; so I can check it out and potentially link it on the github site.&lt;/p&gt;
+
+&lt;p&gt;If you have any issues also please log a bug on &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;the github page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;br /&gt;
+Dave Leaver.&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css&quot; /&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css&quot; /&gt;
+
+&lt;!--[if lte IE 8]&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.ie.css&quot; /&gt;&lt;![endif]--&gt;
+&lt;script src=&quot;http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;http://leaflet.github.io/Leaflet.markercluster/example/realworld.388.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+	var mapbox = new L.TileLayer(MB_URL, {maxZoom: 18, attribution: MB_ATTR, id: &#39;examples.map-i875mjb7&#39;}),
+		latlng = new L.LatLng(-37.820, 175.217);
+
+	var map = new L.Map(&#39;map&#39;, {center: latlng, zoom: 15, layers: [mapbox]});
+
+	map.attributionControl.addAttribution(&quot;Points &amp;copy 2012 LINZ&quot;);
+
+	var markers = new L.MarkerClusterGroup();
+
+	for (var i = 0; i &lt; addressPoints.length; i++) {
+		var a = addressPoints[i];
+		var title = a[2];
+		var marker = new L.Marker(new L.LatLng(a[0], a[1]), { title: title });
+		marker.bindPopup(title);
+		markers.addLayer(marker);
+	}
+
+	map.addLayer(markers);
+&lt;/script&gt;
+
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.4.3 and a New Tutorial</title>
+		<link href="http://leafletjs.com/2012/08/07/leaflet-0-4-3-and-a-new-tutorial.html"/>
+		<updated>2012-08-07T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2012/08/07/leaflet-0-4-3-and-a-new-tutorial</id>
+		<content type="html">&lt;p&gt;Following the &lt;a href=&quot;leaflet-0-4-released.html&quot;&gt;Leaflet 0.4 release&lt;/a&gt;, there were several minor bugfix releases over the past week, with Leaflet 0.4.3 released today. They contain fixes for some bugs that were discovered and also bring some improvements to the new GeoJSON API to make it even more flexible &amp;#8212; see the changelog below.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve also written &lt;a href=&quot;../../../examples/choropleth.html&quot;&gt;a new tutorial&lt;/a&gt;, inspired by the &lt;a href=&quot;http://www.texastribune.org/library/data/us-senate-runoff-results-map/&quot;&gt;Texas Tribune US Senate Runoff Results map&lt;/a&gt; by &lt;a href=&quot;http://www.texastribune.org/about/staff/ryan-murphy/&quot;&gt;Ryan Murphy&lt;/a&gt; (also powered by Leaflet). It will show you step-by-step how to create a beautiful interactive &lt;a href=&quot;http://en.wikipedia.org/wiki/Choropleth_map&quot;&gt;choropleth map&lt;/a&gt; of US States Population Density with the help of GeoJSON and custom controls, and hopefully convince more major news and government websites to switch to Leaflet. :)&lt;/p&gt;
+
+&lt;p&gt;Grab the new Leaflet 0.4.3 at the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt;. Enjoy!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;update&lt;/strong&gt;: IE9 regression was discovered in 0.4.3, so I had to release 0.4.4 with a fix. Sorry!&lt;/p&gt;
+
+&lt;h3 id=&quot;august-7-2012&quot;&gt;0.4.3 (August 7, 2012)&lt;/h3&gt;
+
+&lt;h4 id=&quot;improvements&quot;&gt;Improvements&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improved &lt;code&gt;GeoJSON&lt;/code&gt; &lt;code&gt;setStyle&lt;/code&gt; to also accept function (like the corresponding option).&lt;/li&gt;
+  &lt;li&gt;Added &lt;code&gt;GeoJSON&lt;/code&gt; &lt;code&gt;resetStyle(layer)&lt;/code&gt;, useful for resetting hover state.&lt;/li&gt;
+  &lt;li&gt;Added &lt;code&gt;feature&lt;/code&gt; property to layers created with &lt;code&gt;GeoJSON&lt;/code&gt; (containing the GeoJSON feature data).&lt;/li&gt;
+  &lt;li&gt;Added &lt;code&gt;FeatureGroup&lt;/code&gt; &lt;code&gt;bringToFront&lt;/code&gt; and &lt;code&gt;bringToBack&lt;/code&gt; methods (so that they would work for multipolys).&lt;/li&gt;
+  &lt;li&gt;Added optional &lt;code&gt;animate&lt;/code&gt; argument to &lt;code&gt;Map&lt;/code&gt; &lt;code&gt;invalidateSize&lt;/code&gt; (by &lt;a href=&quot;https://github.com/ajbeaven&quot;&gt;@ajbeaven&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/pull/857&quot;&gt;#857&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;bugfixes&quot;&gt;Bugfixes&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed a bug where tiles sometimes disappeared on initial map load on Android 2/3 (by &lt;a href=&quot;https://github.com/danzel&quot;&gt;@danzel&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/pull/868&quot;&gt;#868&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Fixed a bug where map would occasionally flicker near the border on zoom or pan on Chrome.&lt;/li&gt;
+  &lt;li&gt;Fixed a bug where &lt;code&gt;Path&lt;/code&gt; &lt;code&gt;bringToFront&lt;/code&gt; and &lt;code&gt;bringToBack&lt;/code&gt; didn&amp;#8217;t return &lt;code&gt;this&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Removed zoom out on Win/Meta key binding (since it interferes with global keyboard shortcuts). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/issues/869&quot;&gt;#869&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;august-1-2012&quot;&gt;0.4.2 (August 1, 2012)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed a bug where layers control radio buttons would not work correctly in IE7 (by &lt;a href=&quot;https://github.com/danzel&quot;&gt;@danzel&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/pull/862&quot;&gt;#862&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Fixed a bug where &lt;code&gt;FeatureGroup&lt;/code&gt; &lt;code&gt;removeLayer&lt;/code&gt; would unbind popups of removed layers even if the popups were not put by the group (affected &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; plugin) (by &lt;a href=&quot;https://github.com/danzel&quot;&gt;@danzel&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/pull/861&quot;&gt;#861&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;july-31-2012&quot;&gt;0.4.1 (July 31, 2012)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed a bug that caused marker shadows appear as opaque black in IE6-8. &lt;a href=&quot;https://github.com/Leaflet/Leaflet/issues/850&quot;&gt;#850&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Fixed a bug with incorrect calculation of scale by the scale control. &lt;a href=&quot;https://github.com/Leaflet/Leaflet/issues/852&quot;&gt;#852&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Fixed broken L.tileLayer.wms class factory (by &lt;a href=&quot;https://github.com/mattcurrie&quot;&gt;@mattcurrie&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/issues/856&quot;&gt;#856&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved retina detection for &lt;code&gt;TileLayer&lt;/code&gt; &lt;code&gt;detectRetina&lt;/code&gt; option (by &lt;a href=&quot;https://github.com/sxua&quot;&gt;@sxua&lt;/a&gt;). &lt;a href=&quot;https://github.com/Leaflet/Leaflet/issues/854&quot;&gt;#854&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sincerely, &lt;br /&gt;
+Vladimir Agafonkin, Leaflet maintainer.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Leaflet 0.4 Released</title>
+		<link href="http://leafletjs.com/2012/07/30/leaflet-0-4-released.html"/>
+		<updated>2012-07-30T00:00:00+00:00</updated>
+		<id>http://leafletjs.com/2012/07/30/leaflet-0-4-released</id>
+		<content type="html">&lt;p&gt;After 5.5 months of development with &lt;a href=&quot;https://github.com/Leaflet/Leaflet/graphs/contributors?from=2012-02-15&amp;amp;to=2012-07-30&amp;amp;type=c&quot;&gt;33 contributors&lt;/a&gt; involved since the previous stable release, I&amp;#8217;m proud to announce the release of Leaflet 0.4! It comes with a simpler API and &lt;em&gt;lots&lt;/em&gt; of great improvements and important bugfixes, along with a major update to documentation, an official plugins page and the launch of this developer blog. Lets take a look at the improvements one by one.&lt;/p&gt;
+
+&lt;h3 id=&quot;simpler-api&quot;&gt;Simpler API&lt;/h3&gt;
+
+&lt;p&gt;Leaflet 0.4 contains several API improvements that allow you to write simpler, terser code (&lt;a href=&quot;http://jquery.com&quot;&gt;jQuery&lt;/a&gt;-like), while being backwards compatible with the previous approach (so that you can use both styles).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;L.marker([51.5, -0.09])
+	.addTo(map)
+	.bindPopup(&#39;Hello world!&#39;)
+	.openPopup();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, Leaflet methods now accept &lt;a href=&quot;../../../reference.html#latlng&quot;&gt;LatLng&lt;/a&gt;, &lt;a href=&quot;../../../reference.html#latlngbounds&quot;&gt;LatLngBounds&lt;/a&gt;, &lt;a href=&quot;../../../reference.html#point&quot;&gt;Point&lt;/a&gt; and &lt;a href=&quot;../../../reference.html#bounds&quot;&gt;Bounds&lt;/a&gt; objects in a simple array form, so you don&amp;#8217;t need to always create them explicitly:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map.panTo([50, 30]); // the same as:
+map.panTo(new L.LatLng(50, 30));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, Map methods like &lt;a href=&quot;../../../reference.html#map-addlayer&quot;&gt;addLayer&lt;/a&gt;, &lt;a href=&quot;../../../reference.html#map-addcontrol&quot;&gt;addControl&lt;/a&gt;, &lt;a href=&quot;../../../reference.html#map-openpopup&quot;&gt;openPopup&lt;/a&gt; got their counterparts from the other side:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;marker.addTo(map);  // same as map.addLayer(marker)
+control.addTo(map); //         map.addControl(control)
+popup.openOn(map);  //         map.openPopup(popup)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Along with the fact that all Leaflet methods that don&amp;#8217;t explicitly return a value return the object itself, this allows for convenient method chaining.&lt;/p&gt;
+
+&lt;p&gt;Third, Leaflet classes now come with lowercase shortcuts (class factories) that allow you to create objects without the &lt;code&gt;new&lt;/code&gt; keyword, which makes chained code look nicer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;L.map(&#39;map&#39;).fitWorld(); // same as
+(new L.Map(&#39;map&#39;)).fitWorld();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;notable-new-features&quot;&gt;Notable New Features&lt;/h3&gt;
+
+&lt;div id=&quot;map&quot; class=&quot;map&quot; style=&quot;height: 250px&quot;&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;improved-zoom-animation&quot;&gt;Improved Zoom Animation&lt;/h4&gt;
+
+&lt;p&gt;Markers, popups, vector layers and image overlays were hidden during zoom in the previous version, but now (thanks to &lt;a href=&quot;https://github.com/danzel&quot;&gt;Dave Leaver&lt;/a&gt;) they all have beautiful, smooth zoom animation unlike any other existing mapping libraries. Try zooming on the map above to see how it looks! If you have thousands of markers on a map though, you can turn off the marker animation if it gets slow with the Map&amp;#8217;s &lt;code&gt;markerZoomAnimation&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;p&gt;In addition, now tiles won&amp;#8217;t disappear if you zoom in or out more than once quickly.&lt;/p&gt;
+
+&lt;h4 id=&quot;keyboard-navigation&quot;&gt;Keyboard Navigation&lt;/h4&gt;
+
+&lt;p&gt;Leaflet maps got a nice accessibility boost in 0.4 with the new keyboard handler (contributed by &lt;a href=&quot;https://github.com/ericmmartinez&quot;&gt;Eric Martinez&lt;/a&gt;), enabled by default. It allows users to navigate the map by using arrow keys for panning and &lt;code&gt;+/-&lt;/code&gt; keys for zooming (after making the map focused either by tabbing to it or clicking on it). Try it on the map above, it feels very nice!&lt;/p&gt;
+
+&lt;h4 id=&quot;panning-inertia&quot;&gt;Panning Inertia&lt;/h4&gt;
+
+&lt;p&gt;Another nice improvement comes to the panning experience &amp;#8212; now it has an inertial movement effect, where the map smoothly continues to move after a quick pan. Feels especially natural on touch devices &amp;#8212; and it&amp;#8217;s enabled by default too, try it now! It&amp;#8217;s also highly configurable, allowing you to set the maximum speed of the effect, decceleration, and time threshold under which it triggers.&lt;/p&gt;
+
+&lt;h4 id=&quot;pinch-zoom-on-android-4&quot;&gt;Pinch-Zoom on Android 4&lt;/h4&gt;
+
+&lt;p&gt;In the previous Leaflet version, pinch-zoom only worked on iOS devices, but now it finally comes to Android! Works for Android 4+ not only in the stock browser, but also on Chrome and Firefox for Android.&lt;/p&gt;
+
+&lt;h4 id=&quot;scale-control&quot;&gt;Scale Control&lt;/h4&gt;
+
+&lt;p&gt;A simple, lightweight control that indicates the scale of the current map view in metric and/or imperial systems. As usual, you can customize its appearance with CSS. Take a look at the bottom left corner of the map above!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;L.control.scale().addTo(map);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;polyline-and-polygon-editing&quot;&gt;Polyline and Polygon Editing&lt;/h4&gt;
+
+&lt;p&gt;Allows users to edit polylines and polygons with a simple, intuitive interface. Note that this feature will eventually be merged into &lt;a href=&quot;https://github.com/jacobtoye/Leaflet.draw&quot;&gt;Leaflet.draw&lt;/a&gt; &amp;#8212; an awesome plugin for drawing shapes by Jacob Toye.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;polygon.editing.enable();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;div-based-icons&quot;&gt;Div-based Icons&lt;/h4&gt;
+
+&lt;p&gt;In addition to the image-based &lt;a href=&quot;../../../reference.html#icon&quot;&gt;Icon&lt;/a&gt; class, Leaflet 0.4 gets a &lt;a href=&quot;../../../reference.html#divicon&quot;&gt;DivIcon&lt;/a&gt; class for creating lightweight div-based markers (that can contain custom HTML and can be styled with CSS). For example, you can see them in action when editing polylines (the square handles), or in the &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; plugin I&amp;#8217;ll talk about later (the colored clusters).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;L.marker([50.505, 30.57], {
+	icon: L.divIcon({className: &#39;my-div-icon&#39;})
+}).addTo(map);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;rectangle-layer&quot;&gt;Rectangle Layer&lt;/h4&gt;
+
+&lt;p&gt;Rectangle is a convenient shortcut for creating rectangular area layers. You could do this earlier with polygons, but this is easier:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;L.rectangle([[51.505, -0.03], [51.5, -0.045]]).addTo(map);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;api-improvements&quot;&gt;API improvements&lt;/h3&gt;
+
+&lt;h4 id=&quot;geojson-api&quot;&gt;GeoJSON API&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;../../../reference.html#geojson&quot;&gt;GeoJSON&lt;/a&gt; API was improved to be simpler and much more flexible. &lt;a href=&quot;https://github.com/JasonSanford&quot;&gt;Jason Sanford&lt;/a&gt; wrote a &lt;a href=&quot;../../../examples/geojson.html&quot;&gt;great tutorial&lt;/a&gt; that showcases the new API. The changes are not backwards-compatible though, so be sure to update your old code.&lt;/p&gt;
+
+&lt;h4 id=&quot;icon-api&quot;&gt;Icon API&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;../../../reference.html#icon&quot;&gt;Icon&lt;/a&gt; API was improved to be simpler and more flexible, and the changes are not backwards-compatible too (the old code can be updated very quickly though). Check out the updated &lt;a href=&quot;../../../examples/custom-icons.html&quot;&gt;Custom Icons tutorial&lt;/a&gt;, or head straigt to the &lt;a href=&quot;../../../reference.html#icon&quot;&gt;API docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;control-api&quot;&gt;Control API&lt;/h4&gt;
+
+&lt;p&gt;Custom Controls are much easier to create now &amp;#8212; checkout the &lt;a href=&quot;../../../reference.html#icontrol&quot;&gt;API docs&lt;/a&gt; that also have a simple example.&lt;/p&gt;
+
+&lt;h4 id=&quot;better-events-api&quot;&gt;Better Events API&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Guiswa&quot;&gt;Aaron King&lt;/a&gt; brough some improvements to &lt;a href=&quot;../../../reference.html#events&quot;&gt;event methods&lt;/a&gt;. &lt;code&gt;on&lt;/code&gt; and &lt;code&gt;off&lt;/code&gt; methods can now accept multiple event types at once as a string space-separated types:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map.on(&#39;click dblclick moveend&#39;, doStuff);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, they can accept an object with types and listener functions as key/value pairs, like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;marker.on({
+	click: onMarkerClick,
+	dragend: onMarkerDragEnd
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Moreover, now if you only specify an event type to the &lt;code&gt;off&lt;/code&gt; method, it will remove all listeners tied to this event.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map.off(&#39;click&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;other-api-improvements&quot;&gt;Other API Improvements&lt;/h4&gt;
+
+&lt;p&gt;Leaflet 0.4 features more than 30 new methods, options and events across different Leaflet classes that make the API more complete and powerful. Check out the &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-api-improvements&quot;&gt;full changelog&lt;/a&gt; for the complete list.&lt;/p&gt;
+
+&lt;h3 id=&quot;performance-and-usability-improvements&quot;&gt;Performance and Usability Improvements&lt;/h3&gt;
+
+&lt;p&gt;You may think that Leaflet is unbelievably fast already, but this version brings several performance improvements that make it even faster.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Panning, map resizing and pinch-zoom performance was improved (some tricks behind this will be explained in a future blog post).&lt;/li&gt;
+  &lt;li&gt;Updating and removing vector layers on the canvas backend (e.g. on Android 2) works many times faster.&lt;/li&gt;
+  &lt;li&gt;Box shadows on controls were replaced with simple borders on mobile devices to improve performance.&lt;/li&gt;
+  &lt;li&gt;Vector layers won&amp;#8217;t flicker after each panning on iOS now.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In addition, there are several usability improvents not already mentioned:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Panning now works even if there are markers under the cursor (helps on crowded maps).&lt;/li&gt;
+  &lt;li&gt;Popup appearance is slightly improved.&lt;/li&gt;
+  &lt;li&gt;Tile layer now has &lt;code&gt;detectRetina&lt;/code&gt; option that, when enabled, doubles the tile resolution for retina displays (contributed by &lt;a href=&quot;https://github.com/Mithgol&quot;&gt;Mithgol&lt;/a&gt;)	.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bugfixes&quot;&gt;Bugfixes&lt;/h3&gt;
+
+&lt;p&gt;Leaflet 0.4 brings around 45 bugfixes that make it more stable and reliable across all browsers and platforms. Notable bugfixes include the dreaded iOS bug that caused the map to completely disappear after pinch-zooming in some rare cases, broken zooming on IE10 beta, broken Leaflet maps on pages served with an XHTML content type, and incorrect zooming on maps inside a fixed-position element.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#8217;s &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#bug-fixes&quot;&gt;a full list of bugfixes&lt;/a&gt; in the changelog.&lt;/p&gt;
+
+&lt;h3 id=&quot;upgrading-from-older-versions&quot;&gt;Upgrading from older versions&lt;/h3&gt;
+
+&lt;p&gt;Besides the GeoJSON and Icon changes mentioned above, here&amp;#8217;s a &lt;a href=&quot;https://github.com/Leaflet/Leaflet/blob/master/CHANGELOG.md#other-breaking-api-changes&quot;&gt;list of potentially breaking changes&lt;/a&gt; &amp;#8212; read it carefully when updating your code (shouldn&amp;#8217;t take much time though).&lt;/p&gt;
+
+&lt;p&gt;Download options for Leaflet 0.4 (including the actual download, the CDN-hosted version, and intructions for building manually) are listed on the &lt;a href=&quot;../../../download.html&quot;&gt;download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;code-stats&quot;&gt;Code Stats&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#8217;m still commited to keeping Leaflet as small and lightweight as possible. Here&amp;#8217;s a breakdown of the current size of the library:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JavaScript: &lt;strong&gt;27 KB&lt;/strong&gt; minified and gzipped (102 KB minified, 176 KB in source, 7578 lines of code)&lt;/li&gt;
+  &lt;li&gt;CSS: &lt;strong&gt;1.8 KB&lt;/strong&gt; gzipped (8 KB, 377 lines of code)&lt;/li&gt;
+  &lt;li&gt;Images: &lt;strong&gt;10 KB&lt;/strong&gt; (5 PNG images)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;documentation-update&quot;&gt;Documentation Update&lt;/h3&gt;
+
+&lt;p&gt;Until now, Leaflet API reference was incomplete. But for this release, enourmous effort was put into making it 100% complete, up-to-date and generally the best API reference page you&amp;#8217;ve ever seen. All remaining classes, methods, options, events and properties were carefully documented and more code examples added, and the docs will always be kept up-to-date from now on.&lt;/p&gt;
+
+&lt;p&gt;Besides, the design of the page was significantly improved &amp;#8212; with better colors, font, spacing, hyphenation, manually adjusted column widths, etc. &amp;#8212; lots of detail to make it beautiful and easy to read.&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins-page&quot;&gt;Plugins Page&lt;/h3&gt;
+
+&lt;p&gt;Leaflet website now has an official &lt;a href=&quot;../../../plugins.html&quot;&gt;plugins page&lt;/a&gt; that lists many Leaflet plugins created by the awesome Leaflet community, adding lots of great features and helping with service integration.&lt;/p&gt;
+
+&lt;p&gt;One plugin I&amp;#8217;d like to mention is &lt;a href=&quot;https://github.com/danzel/Leaflet.markercluster&quot;&gt;Leaflet.markercluster&lt;/a&gt; by &lt;a href=&quot;https://github.com/danzel&quot;&gt;Dave Leaver&lt;/a&gt;, currently the best marker clustering plugin I&amp;#8217;ve ever seen among any mapping libraries &amp;#8212; it&amp;#8217;s fast, beautiful, provides smooth animations for clusters, includes a smart Google Earth-style solution for crowded markers on the last zoom level (by &lt;a href=&quot;https://github.com/jawj/&quot;&gt;George MacKerron&lt;/a&gt;), can highlight the area covered by a cluster on hover, works well on mobile devices, and can be customized easily. I think we&amp;#8217;ll cover this plugin in more detail in one of the next posts.&lt;/p&gt;
+
+&lt;p&gt;Another plugin to note is &lt;a href=&quot;https://github.com/jacobtoye/Leaflet.draw&quot;&gt;Leaflet.draw&lt;/a&gt; by &lt;a href=&quot;https://github.com/jacobtoye&quot;&gt;Jacob Toye&lt;/a&gt;, inspired by a similar plugin by &lt;a href=&quot;https://github.com/brunob&quot;&gt;Bruno B&lt;/a&gt;. It enables drawing features like polylines, polygons, rectangles, circles and markers through a very nice user-friendly interface with icons and hints. Other editing-related code will probably move into this plugin in future.&lt;/p&gt;
+
+&lt;p&gt;Also, thanks to &lt;a href=&quot;https://github.com/kartena/Proj4Leaflet&quot;&gt;Proj4Leaflet&lt;/a&gt; plugin by &lt;a href=&quot;http://www.kartena.se/&quot;&gt;Kartena&lt;/a&gt;, GIS enthusiasts can now enjoy Leaflet for maps with some quirky and rare projections.&lt;/p&gt;
+
+&lt;p&gt;One more Leaflet-based creation everyone needs to check out is &lt;a href=&quot;http://flyjs.com/buildings/&quot;&gt;OSM Buildings&lt;/a&gt; by &lt;a href=&quot;http://flyjs.com/buildings/about.php&quot;&gt;Jan Marsch&lt;/a&gt;, an amazing JS library for visualizing 3D OSM building data on top of Leaflet maps. Incredibly cool stuff.&lt;/p&gt;
+
+&lt;h3 id=&quot;developer-blog&quot;&gt;Developer Blog&lt;/h3&gt;
+
+&lt;p&gt;This is the first post of the official Leaflet developer blog, that will become the main place for all important Leaflet-related news, tutorials, tips and development notes.&lt;/p&gt;
+
+&lt;h3 id=&quot;big-players-using-leaflet&quot;&gt;Big Players Using Leaflet&lt;/h3&gt;
+
+&lt;p&gt;Since the previous release, Leaflet got adopted by many great companies, including &lt;a href=&quot;http://flickr.com/map&quot;&gt;Flickr&lt;/a&gt;, &lt;a href=&quot;http://foursquare.com&quot;&gt;foursquare&lt;/a&gt; and &lt;a href=&quot;http://blog.wikimedia.org/2012/04/05/new-wikipedia-app-for-ios-and-an-update-for-our-android-app/&quot;&gt;Wikimedia Foundation&lt;/a&gt; (featured on &lt;a href=&quot;../../../index.html&quot;&gt;frontpage&lt;/a&gt; now). This is a really exciting time for Leaflet and open source maps, and I look forward to see many other companies follow this awesome trend in future.&lt;/p&gt;
+
+&lt;h3 id=&quot;thank-you&quot;&gt;Thank You&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#8217;d like to thank all the awesome people that helped Leaflet becoming what it is now &amp;#8212; contributed code, reported bugs, used Leaflet on their websites, told collegues about it, talked about it on conferences, etc. Keep up the great work!&lt;/p&gt;
+
+&lt;p&gt;Special thanks go to &lt;a href=&quot;https://github.com/danzel&quot;&gt;Dave Leaver&lt;/a&gt; for his inspiring contributions including improved zoom animation and the state-of-the-art clustering plugin, and &lt;a href=&quot;https://github.com/JasonSanford&quot;&gt;Jason Sanford&lt;/a&gt; for his friendly support (and setting up the Leaflet CDN among other things).&lt;/p&gt;
+
+&lt;p&gt;And, of course, thanks to my amazing company, &lt;a href=&quot;http://cloudmade.com&quot;&gt;CloudMade&lt;/a&gt;, for embracing open source and supporting this development.&lt;/p&gt;
+
+&lt;p&gt;Sincerely, &lt;br /&gt;
+Vladimir Agafonkin, Leaflet maintainer.&lt;/p&gt;
+
+&lt;script&gt;
+	var map = L.map(&#39;map&#39;).setView([51.503, -0.09], 13);
+
+	L.tileLayer(MB_URL, {attribution: MB_ATTR, id: &#39;examples.map-i875mjb7&#39;}).addTo(map);
+
+	var polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	], {color: &#39;red&#39;}).addTo(map).bindPopup(&#39;I am an editable polygon.&#39;);
+
+	polygon.editing.enable();
+
+	L.control.scale().addTo(map);
+
+	L.marker([51.5, -0.095]).addTo(map)
+		.bindPopup(&quot;&lt;b&gt;Hello world!&lt;/b&gt;&lt;br /&gt;I am a popup.&quot;).openPopup();
+
+	L.marker([51.505, -0.115]).addTo(map).bindPopup(&quot;I am a second popup.&quot;);
+	L.marker([51.496, -0.13]).addTo(map).bindPopup(&quot;I am a third popup.&quot;);
+
+	L.rectangle([
+		[51.505, -0.03],
+		[51.5, -0.045]
+	], {weight: 1, opacity: 0.8}).addTo(map).bindPopup(&#39;I am a rectangle.&#39;);
+&lt;/script&gt;
+
+</content>
+	</entry>
+	
+
+</feed>
