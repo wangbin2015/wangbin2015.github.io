@@ -1,55 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+
 	<title>Leaflet - a JavaScript library for interactive maps</title>
-	<meta charset=utf-8"utf-8" />
+
+	<meta charset="utf-8" />
+
+	
+	<meta property="og:title" content="Leaflet — an open-source JavaScript library for interactive maps" />
+	<meta property="og:description" content="Leaflet is a modern, lightweight open-source JavaScript library for mobile-friendly interactive maps." />
+	<meta property="og:image" content="http://leafletjs.com/docs/images/logo.png" />
+
+	<meta itemprop="name" content="Leaflet">
+	<meta itemprop="description" content="Leaflet — a modern, lightweight open-source JavaScript library for mobile-friendly interactive maps.">
+	<meta itemprop="image" content="http://leafletjs.com/docs/images/logo.png">
+	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
 	<link href="http://leafletjs.com/atom.xml" type="application/atom+xml" rel="alternate" title="Leaflet Dev Blog Atom Feed" />
-	<link rel="stylesheet" href="docs/css/normalize.css" tppabs="http://leafletjs.com/docs/css/normalize.css" />
-	<link rel="stylesheet" href="docs/css/main.css" tppabs="http://leafletjs.com/docs/css/main.css" />
-	<link href="../fonts.googleapis.com/css-family=Open+Sans-400,400italic,700,300.css" tppabs="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300" rel='stylesheet' type='text/css'>
-	<script src="docs/highlight/highlight.pack.js" tppabs="http://leafletjs.com/docs/highlight/highlight.pack.js"></script>
-	<link rel="stylesheet" href="docs/highlight/styles/github-gist.css" tppabs="http://leafletjs.com/docs/highlight/styles/github-gist.css" />
+
+	<link rel="stylesheet" href="docs/css/normalize.css" />
+	<link rel="stylesheet" href="docs/css/main.css" />
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,300' rel='stylesheet' type='text/css'>
+
+	<script src="docs/highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" href="docs/highlight/styles/github-gist.css" />
+
 	<!-- Leaflet -->
-	<link rel="stylesheet" href="dist/leaflet.css" tppabs="http://leafletjs.com/dist/leaflet.css" />
-	<script src="dist/leaflet.js" tppabs="http://leafletjs.com/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="dist/leaflet.css" />
+	<script src="dist/leaflet.js"></script>
+
+	
+
 	<script>
 		ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
-		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+		CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="http://cloudmade.com/">CloudMade</a>';
-		CM_URL = '../{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png*/;
-		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+		CM_URL = 'http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png';
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="http://mapbox.com/">Mapbox</a>';
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>';
 		MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
-		OSM_URL = '../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/;
+		OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 	</script>
 </head>
 <body>
-<h1><a href="index.htm" tppabs="http://leafletjs.com/"><img src="docs/images/logo.png" tppabs="http://leafletjs.com/docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
+
+<h1><a href="http://leafletjs.com"><img src="docs/images/logo.png" alt="Leaflet" width="300" /></a></h1>
 <h3 class="tagline">an open-source JavaScript library<br> for mobile-friendly interactive maps</h3>
 
 <ul class="nav">
 	<li>
-		<span>概述</span>
+		
+			<span>Overview</span>
+		
 	</li>
 	<li>
-		<a href="examples.html">教程</a>
+		
+			<a href="examples.html">Tutorials</a>
+		
 	</li>
 	<li>
-		<a href="reference.html">文档</a>
+		
+			<a href="reference.html">Docs</a>
+		
 	</li>
 	<li>
-		<a href="download.html">下载</a>
+		
+			<a href="download.html">Download</a>
+		
 	</li>
 	<li>
-		<a href="plugins.html">插件</a>
+		
+			<a href="plugins.html">Plugins</a>
+		
 	</li>
 	<li>
-		<a href="blog.html">博客</a>
+		
+			<a href="blog.html">Blog</a>
+		
 	</li>
 </ul>
 
@@ -62,10 +100,10 @@ it&nbsp;has all the mapping <a href="#features">features</a> most developers eve
 
 <p>Leaflet is designed with <em>simplicity</em>, <em>performance</em> and <em>usability</em> in mind.
 It works efficiently across all major desktop and mobile platforms,
-can be extended with lots of <a href="plugins.html" tppabs="http://leafletjs.com/plugins.html">plugins</a>,
-has a beautiful, easy to use and <a title="Leaflet API reference" href="reference.html" tppabs="http://leafletjs.com/reference.html">well-documented API</a>
-and a simple, readable&nbsp;<a title="Leaflet source code repository on GitHub" href="javascript:if(confirm('https://github.com/Leaflet/Leaflet  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet'" tppabs="https://github.com/Leaflet/Leaflet">source code</a> that is a&nbsp;joy to
-<a title="A guide to contributing to Leaflet" href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md">contribute</a> to.</p>
+can be extended with lots of <a href="plugins.html">plugins</a>,
+has a beautiful, easy to use and <a title="Leaflet API reference" href="reference.html">well-documented API</a>
+and a simple, readable&nbsp;<a title="Leaflet source code repository on GitHub" href="https://github.com/Leaflet/Leaflet">source code</a> that is a&nbsp;joy to
+<a title="A guide to contributing to Leaflet" href="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md">contribute</a> to.</p>
 
 <div id="map" class="map map-home" style="height: 300px; margin-top: 50px"></div>
 
@@ -81,9 +119,9 @@ L.marker([51.5, -0.09]).addTo(map)
     .bindPopup('A pretty CSS3 popup.&lt;br&gt; Easily customizable.')
     .openPopup();</code></pre>
 
-<p>Learn more with the <a href="examples/quick-start.html" tppabs="http://leafletjs.com/examples/quick-start.html">quick start guide</a>, check out <a href="examples.html" tppabs="http://leafletjs.com/examples.html">other tutorials</a>,
-or head straight to the <a href="reference.html" tppabs="http://leafletjs.com/reference.html">API documentation</a>.
-If you have any questions, take a look at the <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/FAQ.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/FAQ.md'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/FAQ.md">FAQ</a> first.</p>
+<p>Learn more with the <a href="examples/quick-start.html">quick start guide</a>, check out <a href="examples.html">other tutorials</a>,
+or head straight to the <a href="reference.html">API documentation</a>.
+If you have any questions, take a look at the <a href="https://github.com/Leaflet/Leaflet/blob/master/FAQ.md">FAQ</a> first.</p>
 
 
 </div>
@@ -91,22 +129,22 @@ If you have any questions, take a look at the <a href="javascript:if(confirm('ht
 <h2 class="usedby-title">Trusted by the best</h2>
 <div class="usedby">
   <div class="container">
-    <a class="logo logo-github" href="javascript:if(confirm('https://github.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/'" tppabs="https://github.com/">GitHub</a>
-    <a class="logo logo-foursquare" href="javascript:if(confirm('http://foursquare.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://foursquare.com/'" tppabs="http://foursquare.com/">foursquare</a>
-    <a class="logo logo-pinterest" href="javascript:if(confirm('https://www.pinterest.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://www.pinterest.com/'" tppabs="https://www.pinterest.com/">Pinterest</a>
-    <a class="logo logo-facebook" href="javascript:if(confirm('https://www.facebook.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://www.facebook.com/'" tppabs="https://www.facebook.com/">Facebook</a>
-    <a class="logo logo-evernote" href="javascript:if(confirm('https://evernote.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://evernote.com/'" tppabs="https://evernote.com/">Evernote</a>
-    <a class="logo logo-etsy" href="javascript:if(confirm('https://www.etsy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://www.etsy.com/'" tppabs="https://www.etsy.com/">Etsy</a>
-    <a class="logo logo-flickr" href="javascript:if(confirm('https://www.flickr.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://www.flickr.com/'" tppabs="https://www.flickr.com/">Flickr</a>
-    <a class="logo logo-500px" href="javascript:if(confirm('https://500px.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://500px.com/'" tppabs="https://500px.com/">500px</a>
-    <a class="logo logo-datagov" href="javascript:if(confirm('http://www.data.gov/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://www.data.gov/'" tppabs="http://www.data.gov/">Data.gov</a>
-    <a class="logo logo-european-commission" href="javascript:if(confirm('http://ec.europa.eu/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://ec.europa.eu/'" tppabs="http://ec.europa.eu/">European Commission</a>
-    <a class="logo logo-wpost" href="javascript:if(confirm('https://www.washingtonpost.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://www.washingtonpost.com/'" tppabs="https://www.washingtonpost.com/">The Washington Post</a>
-    <a class="logo logo-ftimes" href="javascript:if(confirm('http://www.ft.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://www.ft.com/'" tppabs="http://www.ft.com/">Financial Times</a>
-    <a class="logo logo-npr" href="javascript:if(confirm('http://www.npr.org/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://www.npr.org/'" tppabs="http://www.npr.org/">NPR</a>
-    <a class="logo logo-usatoday" href="javascript:if(confirm('http://www.usatoday.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://www.usatoday.com/'" tppabs="http://www.usatoday.com/">USA Today</a>
-    <a class="logo logo-nps" href="javascript:if(confirm('http://www.nps.gov/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://www.nps.gov/'" tppabs="http://www.nps.gov/">National Park Service</a>
-    <a class="logo logo-ign" href="javascript:if(confirm('http://ign.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://ign.com/'" tppabs="http://ign.com/">IGN.com</a>
+    <a class="logo logo-github" href="https://github.com">GitHub</a>
+    <a class="logo logo-foursquare" href="http://foursquare.com">foursquare</a>
+    <a class="logo logo-pinterest" href="https://www.pinterest.com">Pinterest</a>
+    <a class="logo logo-facebook" href="https://www.facebook.com/">Facebook</a>
+    <a class="logo logo-evernote" href="https://evernote.com">Evernote</a>
+    <a class="logo logo-etsy" href="https://www.etsy.com/">Etsy</a>
+    <a class="logo logo-flickr" href="https://www.flickr.com/">Flickr</a>
+    <a class="logo logo-500px" href="https://500px.com">500px</a>
+    <a class="logo logo-datagov" href="http://www.data.gov/">Data.gov</a>
+    <a class="logo logo-european-commission" href="http://ec.europa.eu/">European Commission</a>
+    <a class="logo logo-wpost" href="https://www.washingtonpost.com">The Washington Post</a>
+    <a class="logo logo-ftimes" href="http://www.ft.com">Financial Times</a>
+    <a class="logo logo-npr" href="http://www.npr.org">NPR</a>
+    <a class="logo logo-usatoday" href="http://www.usatoday.com">USA Today</a>
+    <a class="logo logo-nps" href="http://www.nps.gov/">National Park Service</a>
+    <a class="logo logo-ign" href="http://ign.com">IGN.com</a>
   </div>
 </div>
 
@@ -229,35 +267,35 @@ If you have any questions, take a look at the <a href="javascript:if(confirm('ht
     </div>
 </div>
 
-<p>If you find some feature really missing in Leaflet, first check if there's a <a href="plugins.html" tppabs="http://leafletjs.com/plugins.html">plugin for it</a>. If not, please vote for the feature on the <a href="javascript:if(confirm('https://leaflet.uservoice.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://leaflet.uservoice.com/'" tppabs="https://leaflet.uservoice.com/">Leaflet UserVoice page</a>.</p>
+<p>If you find some feature really missing in Leaflet, first check if there's a <a href="plugins.html">plugin for it</a>. If not, please vote for the feature on the <a href="https://leaflet.uservoice.com">Leaflet UserVoice page</a>.</p>
 
 <h2>Getting Involved</h2>
 
-<p>Let's create the best mapping library that will ever exist! Leaflet is developed by <a href="javascript:if(confirm('http://agafonkin.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://agafonkin.com/'" tppabs="http://agafonkin.com/">Vladimir Agafonkin</a> of <a href="javascript:if(confirm('http://mapbox.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://mapbox.com/'" tppabs="http://mapbox.com/">Mapbox</a> with a team of dedicated <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/graphs/contributors  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/graphs/contributors'" tppabs="https://github.com/Leaflet/Leaflet/graphs/contributors">contributors</a>.
-<a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet'" tppabs="https://github.com/Leaflet/Leaflet">Pull requests</a> are always welcome.
+<p>Let's create the best mapping library that will ever exist! Leaflet is developed by <a href="http://agafonkin.com">Vladimir Agafonkin</a> of <a href="http://mapbox.com">Mapbox</a> with a team of dedicated <a href="https://github.com/Leaflet/Leaflet/graphs/contributors">contributors</a>.
+<a href="https://github.com/Leaflet/Leaflet">Pull requests</a> are always welcome.
 However, there are many more ways to get involved with the development of Leaflet.</p>
 
-<p>You can help the project tremendously by discovering and <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#reporting-bugs'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#reporting-bugs">reporting bugs</a>, <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#improving-documentation'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#improving-documentation">improving documentation</a>,
-helping others on the <a href="javascript:if(confirm('https://groups.google.com/forum/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js">Leaflet forum</a>
-and <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/issues  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/issues'" tppabs="https://github.com/Leaflet/Leaflet/issues">GitHub issues</a>,
-showing your support for your favorite feature suggestions on <a href="javascript:if(confirm('http://leaflet.uservoice.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://leaflet.uservoice.com/'" tppabs="http://leaflet.uservoice.com/">Leaflet UserVoice page</a>,
-tweeting to <a href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS">@LeafletJS</a>
+<p>You can help the project tremendously by discovering and <a href="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#reporting-bugs">reporting bugs</a>, <a href="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md#improving-documentation">improving documentation</a>,
+helping others on the <a href="https://groups.google.com/forum/#!forum/leaflet-js">Leaflet forum</a>
+and <a href="https://github.com/Leaflet/Leaflet/issues">GitHub issues</a>,
+showing your support for your favorite feature suggestions on <a href="http://leaflet.uservoice.com">Leaflet UserVoice page</a>,
+tweeting to <a href="http://twitter.com/LeafletJS">@LeafletJS</a>
 and spreading the word about Leaflet among your colleagues and friends.</p>
 
-<p>Check out the <a href="javascript:if(confirm('https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md'" tppabs="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md">contribution guide</a> for more information on getting involved with Leaflet development.</p>
+<p>Check out the <a href="https://github.com/Leaflet/Leaflet/blob/master/CONTRIBUTING.md">contribution guide</a> for more information on getting involved with Leaflet development.</p>
 
 <div class="social-buttons">
-    <iframe src="../ghbtns.com/github-btn.html-user=Leaflet&repo=Leaflet&type=watch&count=true" tppabs="http://ghbtns.com/github-btn.html?user=Leaflet&repo=Leaflet&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20px"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user=Leaflet&amp;repo=Leaflet&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="104px" height="20px"></iframe>
 
-    <a href="javascript:if(confirm('https://twitter.com/LeafletJS  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://twitter.com/LeafletJS'" tppabs="https://twitter.com/LeafletJS" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @LeafletJS</a>
+    <a href="https://twitter.com/LeafletJS" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @LeafletJS</a>
 
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="../platform.twitter.com/widgets.js"/*tpa=http://platform.twitter.com/widgets.js*/;fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-    <iframe src="../www.facebook.com/plugins/like.php-href=http---leafletjs.com&layout=button_count&show_faces=false&width=93&action=like&font=arial&colorscheme=light&height=35" tppabs="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fleafletjs.com&layout=button_count&show_faces=false&width=93&action=like&font=arial&colorscheme=light&height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:93px; height:20px;" allowTransparency="true"></iframe>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fleafletjs.com&amp;layout=button_count&amp;show_faces=false&amp;width=93&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:93px; height:20px;" allowTransparency="true"></iframe>
 </div>
 
 <script>
-	var osmUrl = '../{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/*tpa=http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png*/,
+	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
 
@@ -265,21 +303,21 @@ and spreading the word about Leaflet among your colleagues and friends.</p>
 
 	L.marker([51.504, -0.159])
 		.addTo(map)
-		.bindPopup('http://leafletjs.com/A pretty CSS3 popup.<br />Easily customizable.')
+		.bindPopup('A pretty CSS3 popup.<br />Easily customizable.')
 		.openPopup();
 </script>
 
 
 <div class="footer">
-	<p>&copy; 2015 <a href="javascript:if(confirm('http://agafonkin.com/en  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://agafonkin.com/en'" tppabs="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="javascript:if(confirm('http://openstreetmap.org/copyright  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://openstreetmap.org/copyright'" tppabs="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
+	<p>&copy; 2015 <a href="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps &copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
 </div>
 
 </div>
 
 <nav class="ext-links">
-  <a class="ext-link twitter" href="javascript:if(confirm('http://twitter.com/LeafletJS  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://twitter.com/LeafletJS'" tppabs="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="docs/images/twitter-round.png" tppabs="http://leafletjs.com/docs/images/twitter-round.png" width="46" /></a>
-  <a class="ext-link github" href="javascript:if(confirm('http://github.com/Leaflet/Leaflet  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽�����������·���С�  \n\n����Ҫ�ӷ�������������?'))window.location='http://github.com/Leaflet/Leaflet'" tppabs="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="docs/images/github-round.png" tppabs="http://leafletjs.com/docs/images/github-round.png" width="46" /></a>
-  <a class="ext-link forum" href="javascript:if(confirm('https://groups.google.com/forum/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э���ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�������������?'))window.location='https://groups.google.com/forum/#!forum/leaflet-js'" tppabs="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="docs/images/forum-round.png" tppabs="http://leafletjs.com/docs/images/forum-round.png" width="46" /></a>
+  <a class="ext-link twitter" href="http://twitter.com/LeafletJS" title="Follow LeafletJS on Twitter"><img alt="Follow LeafletJS on Twitter" src="docs/images/twitter-round.png" width="46" /></a>
+  <a class="ext-link github" href="http://github.com/Leaflet/Leaflet" title="View Source on GitHub"><img alt="View Source on GitHub" src="docs/images/github-round.png" width="46" /></a>
+  <a class="ext-link forum" href="https://groups.google.com/forum/#!forum/leaflet-js" title="Ask for help on the Leaflet forum"><img alt="Official Leaflet forum" src="docs/images/forum-round.png" width="46" /></a>
 </nav>
 
 <script>
@@ -313,13 +351,13 @@ and spreading the word about Leaflet among your colleagues and friends.</p>
 		ga.type = 'text/javascript';
 		ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-				: 'http://www/')
+				: 'http://www')
 				+ '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(ga, s);
 	})();
 </script>
 
-<script type="text/javascript" src="docs/js/docs.js" tppabs="http://leafletjs.com/docs/js/docs.js"></script>
+<script type="text/javascript" src="docs/js/docs.js"></script>
 </body>
 </html>
