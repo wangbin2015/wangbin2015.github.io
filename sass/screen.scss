@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/**
+ *  variables.......................变量集中存储文件
+ *
+ *  normalize.......................normalize重置样式文件
+ *
+ */
+@import "compass/reset", "variables";
+
+.two {
+  display: none;
+}
+
+#content {
+  p {
+    font: {
+      family: $headline-ff;
+      size: $a;
+    }
+  ;
+  }
+  margin: 20px 0 40px;
+}
+
+#workSpace {
+  height: 308px;
+  //flex-flow: column;
+  display: flex;
+  align-items: flex-end;
+  li {
+    line-height: 0.6*$a;
+  }
+}
+
+#foot {
+  position: absolute;
+  bottom: 0;
+  left: -1px;
+}
+
+@media(min-width: 768px) {
+  .two {
+    display: block;
+  }
+  .one {
+    display: none;
+  }
+}
+@media(max-width: 768px){
+  #workSpace{
+    height: 30px;
+  }
+}
