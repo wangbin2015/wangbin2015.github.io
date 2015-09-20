@@ -95,7 +95,7 @@ li{
     display: none;
   }
   .wrapper{
-    width: 70%;
+    width: 100%;
     article {
       display: none;
     }
@@ -117,5 +117,6 @@ li{
     position: absolute;
     bottom: 10px;
     left: 50%;
+    transform: translateX(-50%);
   }
 }
