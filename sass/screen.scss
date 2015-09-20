@@ -106,6 +106,7 @@ li{
   }
   .content p{
     font-size: 0.3*$a;
+    white-space: nowrap;
   };
   li a {
     font: {
