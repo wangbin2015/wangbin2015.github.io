@@ -8,50 +8,89 @@
  *
  *  normalize.......................normalize重置样式文件
  *
+ *  layout..........................布局样式
+ *
  */
-@import "compass/reset", "variables";
-
-.two {
+@import "compass/reset", "variables","_layout";
+*{
+  color: #3c3c3c;
+}
+img{
+  height: 140px;
+  width: 140px;
+}
+li a{
+  text-decoration: none;
+  font:{
+    size: 0.22*$a;
+    style: oblique;
+  }
+  &:hover{
+    color: brown;
+  }
+}
+.content{
+  padding: 13px 0;
+  p{
+    font:{
+      family: $headline-ff;
+      size: 0.55*$a;
+    }
+    display:table-cell;      /*按照单元格的样式显示元素*/
+    vertical-align:middle;   /*垂直居中对齐*/
+    white-space: nowrap;
+  }
+}
+footer{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+li{
+  line-height: 0.4*$a;
+}
+.head_2,.head_3 {
   display: none;
 }
-
-#content {
-  p {
-    font: {
-      family: $headline-ff;
-      size: $a;
-    }
-  ;
+@media(max-width: 1080px){
+  .head_1{
+    display: none;
   }
-  margin: 20px 0 40px;
-}
-
-#workSpace {
-  height: 308px;
-  //flex-flow: column;
-  display: flex;
-  align-items: flex-end;
-  li {
-    line-height: 0.6*$a;
-  }
-}
-
-#foot {
-  position: absolute;
-  bottom: 0;
-  left: -1px;
-}
-
-@media(min-width: 768px) {
-  .two {
+  .head_3{
     display: block;
   }
-  .one {
+}
+@media(max-width: 768px) {
+  .head_1{
+    display: none;
+  }
+  .head_3{
+    display: none;
+  }
+  .head_2{
+    display: block;
+  }
+  .content{
+    p{
+      font: {
+        size: 0.5*$a; ;
+      }};
+    }
+  .workSpace{
     display: none;
   }
 }
-@media(max-width: 768px){
-  #workSpace{
-    height: 30px;
+@media(max-width: 414px) {
+  .head_1 {
+    display: none;
+  }
+  .head_2 {
+    display: block;
+  }
+  .content{
+    p{
+      display: none;
+    }
   }
 }

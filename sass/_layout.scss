@@ -1,0 +1,25 @@
+.clear{
+  clear: both;
+}
+.wrapper {
+  padding-top: 60px;
+  width: 60%;
+  margin: 0 auto;
+  article {
+    display: inline-block;
+    width: 40%;
+    padding: 0 0 20px 80px;
+  }
+  aside {
+    float: right;
+    width: 40%;
+  }
+}
+.content{
+  height: 160px;
+  position: relative;
+  p{
+    position: absolute;
+    left: 60px;
+  }
+}
