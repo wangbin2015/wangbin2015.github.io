@@ -86,7 +86,7 @@ li{
     display: none;
   }
   .wrapper{
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -95,7 +95,14 @@ li{
     display: none;
   }
   .wrapper{
-    width: 100%;
+    width: 70%;
+    article {
+      display: none;
+    }
+    aside {
+      float: right;
+      width: 25%;
+    }
   }
   .content p{
     font-size: 0.3*$a;
@@ -105,5 +112,10 @@ li{
       size: 0.15*$a;
       style: oblique;
     }
+  }
+  footer{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
   }
 }

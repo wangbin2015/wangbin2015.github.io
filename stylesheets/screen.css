@@ -210,7 +210,7 @@ li {
 
   /* line 88, ../sass/screen.scss */
   .wrapper {
-    width: 100%;
+    width: 80%;
   }
 }
 @media (max-width: 481px) {
@@ -221,17 +221,33 @@ li {
 
   /* line 97, ../sass/screen.scss */
   .wrapper {
-    width: 100%;
+    width: 70%;
+  }
+  /* line 99, ../sass/screen.scss */
+  .wrapper article {
+    display: none;
+  }
+  /* line 102, ../sass/screen.scss */
+  .wrapper aside {
+    float: right;
+    width: 25%;
   }
 
-  /* line 100, ../sass/screen.scss */
+  /* line 107, ../sass/screen.scss */
   .content p {
     font-size: 1.5rem;
   }
 
-  /* line 103, ../sass/screen.scss */
+  /* line 110, ../sass/screen.scss */
   li a {
     font-size: 0.75rem;
     font-style: oblique;
+  }
+
+  /* line 116, ../sass/screen.scss */
+  footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
   }
 }
