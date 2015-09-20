@@ -90,13 +90,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 8, ../sass/_layout.scss */
 .wrapper article {
   display: inline-block;
-  width: 40%;
+  width: 30%;
   padding: 0 0 20px 80px;
 }
 /* line 13, ../sass/_layout.scss */
 .wrapper aside {
   float: right;
-  width: 40%;
+  width: 20%;
 }
 
 /* line 18, ../sass/_layout.scss */
@@ -117,8 +117,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 18, ../sass/screen.scss */
 img {
-  height: 140px;
-  width: 140px;
+  height: 100px;
+  width: 100px;
 }
 
 /* line 22, ../sass/screen.scss */
@@ -165,7 +165,7 @@ li {
   display: none;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 2048px) {
   /* line 57, ../sass/screen.scss */
   .head_1 {
     display: none;
@@ -176,7 +176,7 @@ li {
     display: block;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   /* line 65, ../sass/screen.scss */
   .head_1 {
     display: none;
@@ -196,25 +196,42 @@ li {
   .content p {
     font-size: 2.5rem;
   }
-
-  /* line 80, ../sass/screen.scss */
-  .workSpace {
-    display: none;
-  }
 }
-@media (max-width: 414px) {
-  /* line 85, ../sass/screen.scss */
+@media (max-width: 768px) {
+  /* line 82, ../sass/screen.scss */
   .head_1 {
+    display: block;
+  }
+
+  /* line 85, ../sass/screen.scss */
+  .head_2 {
     display: none;
   }
 
   /* line 88, ../sass/screen.scss */
-  .head_2 {
-    display: block;
+  .wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 481px) {
+  /* line 94, ../sass/screen.scss */
+  .head_1, .head_2, .head_3 {
+    display: none;
   }
 
-  /* line 92, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
+  .wrapper {
+    width: 100%;
+  }
+
+  /* line 100, ../sass/screen.scss */
   .content p {
-    display: none;
+    font-size: 1.5rem;
+  }
+
+  /* line 103, ../sass/screen.scss */
+  li a {
+    font-size: 0.75rem;
+    font-style: oblique;
   }
 }
