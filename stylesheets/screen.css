@@ -97,14 +97,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .wrapper aside {
   float: right;
   width: 20%;
+  white-space: nowrap;
 }
 
-/* line 18, ../sass/_layout.scss */
+/* line 19, ../sass/_layout.scss */
 .content {
   height: 160px;
   position: relative;
 }
-/* line 21, ../sass/_layout.scss */
+/* line 22, ../sass/_layout.scss */
 .content p {
   position: absolute;
   left: 60px;
@@ -221,7 +222,7 @@ li {
 
   /* line 97, ../sass/screen.scss */
   .wrapper {
-    width: 70%;
+    width: 100%;
   }
   /* line 99, ../sass/screen.scss */
   .wrapper article {
@@ -233,21 +234,22 @@ li {
     width: 25%;
   }
 
-  /* line 107, ../sass/screen.scss */
+  /* line 108, ../sass/screen.scss */
   .content p {
     font-size: 1.5rem;
   }
 
-  /* line 110, ../sass/screen.scss */
+  /* line 112, ../sass/screen.scss */
   li a {
     font-size: 0.75rem;
     font-style: oblique;
   }
 
-  /* line 116, ../sass/screen.scss */
+  /* line 118, ../sass/screen.scss */
   footer {
     position: absolute;
     bottom: 10px;
     left: 50%;
+    transform: translateX(-50%);
   }
 }
