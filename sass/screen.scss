@@ -104,10 +104,12 @@ li{
       width: 25%;
     }
   }
-  .content p{
-    font-size: 0.3*$a;
+  .content {
     white-space: nowrap;
-  };
+    p{
+      font-size: 0.3*$a;
+    };
+  }
   li a {
     font: {
       size: 0.15*$a;
